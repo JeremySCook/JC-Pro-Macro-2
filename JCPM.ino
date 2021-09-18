@@ -124,6 +124,7 @@ void setup() {
   }
   display.setRotation(2); //sets rotation 1 through 4 (2 = 180º rotation vs 4)
   display.setTextColor(SSD1306_WHITE);        // Draw white text
+  display.invertDisplay(0);
   
 Mouse.begin();
 Keyboard.begin();
@@ -183,10 +184,6 @@ void loop() {
       SW10 = 1;
       delay(250);
     }
-
-//================================
-
-//screen(); //need to change to only call within functions
 
 //======select input mode:=======
 
@@ -253,19 +250,17 @@ void volume(){
       }
   if ((SW7 == 0) && (underLight == 0)) {        
     underLight = 1;
-    pixels.setPixelColor(9, pixels.Color(150, 0, 0));
-    pixels.setPixelColor(10, pixels.Color(150, 0, 0));
-    pixels.setPixelColor(11, pixels.Color(150, 0, 0));
-    pixels.setPixelColor(12, pixels.Color(150, 0, 0));
+    for(int i=9; i<13; i++){
+    pixels.setPixelColor(i, pixels.Color(255, 0, 0));
+    }
     pixels.show(); // Show results
     delay(100);
   }
   else if ((SW7 == 0) && (underLight == 1)) {        
     underLight = 0;
-    pixels.setPixelColor(9, pixels.Color(0, 0, 0));
-    pixels.setPixelColor(10, pixels.Color(0, 0, 0));
-    pixels.setPixelColor(11, pixels.Color(0, 0, 0));
-    pixels.setPixelColor(12, pixels.Color(0, 0, 0));
+    for(int i=9; i<13; i++){
+    pixels.setPixelColor(i, pixels.Color(0, 0, 0));
+    }
     pixels.show(); // Show results
     delay(100);
   }  
@@ -380,7 +375,7 @@ if (nascar == 1){
 }
 
 
-screen();
+screenVolume();
   
 }
 
@@ -592,7 +587,6 @@ screenNote();
 void screenVolume(){
   display.setTextSize(1); 
   display.clearDisplay();
-  display.invertDisplay(0);
   display.setCursor(0,0);
   //display.println("");  
   display.println("ENCOD|     |TAB+ |LIT");
@@ -623,31 +617,8 @@ void screenVolume(){
   //delay(10);
 }
 
-void screen(){
-  display.clearDisplay();
-  display.invertDisplay(0);
-  display.setCursor(0,10);
-  display.print(increment);
-  display.print(decrement);
-  display.print(" ");
-  display.print(newPosition);
-  display.println(LEDLight);
-  display.print(" ");
-  display.print(SW1);
-  display.print(SW2);
-  display.print(SW3);
-  display.print(SW4);
-  display.print(SW5);
-  display.print(SW6);
-  //display.print(inputMode);
-  display.display();
-  //Serial.println(SW1);
-  //delay(10);
-}
-
 void screenFan(){
   display.clearDisplay();
-  display.invertDisplay(0);
   display.setCursor(0,10);
   display.print("Fan ");
   display.print(fanSpeed);
@@ -665,7 +636,6 @@ void screenFan(){
 void screenJiggle(){
   display.setTextSize(3); 
   display.clearDisplay();
-  display.invertDisplay(0);
   display.setCursor(0,10);
   display.println("Rando");
   display.print("Mouse!");
@@ -675,7 +645,6 @@ void screenJiggle(){
 void screenNote(){ //now used for notes
   display.setTextSize(3); 
   display.clearDisplay();
-  display.invertDisplay(0);
   display.setCursor(0,10);
   display.print("TONE ");
   display.println(toneNote);
@@ -694,7 +663,6 @@ void screenNote(){ //now used for notes
 void screenFCPX(){
   display.setTextSize(1); 
   display.clearDisplay();
-  display.invertDisplay(0);
   display.setCursor(0,0);
   //display.println("");  
   display.println("FCPX |BRKA |BRK  |ZO+");
