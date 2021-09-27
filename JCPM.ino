@@ -8,11 +8,6 @@
 //Figure out what to do with bottom support - remake offset so locks in?
 //caps lock code? - does not work properly on Mac it seems
 
-//========================================================
-
-#include <SPI.h>
-#include <Wire.h>
-
 // Declare variables etc=========================================
 
 bool SW1 = 1; //encoder button
