@@ -29,7 +29,7 @@ long oldPosition;
 long newPosition;
 int inputMode = 0;
 int LEDLight = 1;
-int LEDCircle[6] = {3, 4, 5, 6, 7, 8};
+int LEDCircle[6] = {2, 3, 4, 5, 6, 7};
 int counter = 0;
 bool nascar = 0;
 long newNascarTurnTime = 0;
@@ -45,7 +45,7 @@ long oldPulseTime = 0;
 int fanRPM = 0;
 char toneNote;
 
-int modeArray[] = {0, 1, 3, 5}; //adjust this array to modify sequence of modes - as written, change to {0, 1, 2, 3, 4, 5} to access all modes
+int modeArray[] = {0, 1, 3, 6}; //adjust this array to modify sequence of modes - as written, change to {0, 1, 2, 3, 4, 5} to access all modes
 int inputModeIndex = 0;
 int modeArrayLength = (sizeof(modeArray) / sizeof(modeArray[0]));
 
@@ -53,7 +53,7 @@ int modeArrayLength = (sizeof(modeArray) / sizeof(modeArray[0]));
 
 #include <Encoder.h>
 #include <HID-Project.h>
-Encoder myEnc(0,1); //if rotation is backwards, swap 0 and 1
+Encoder myEnc(1,0); //if rotation is backwards, swap 0 and 1
 
 // Screen setup =============================================
 
@@ -188,6 +188,7 @@ if (inputMode == 2) slitherIO();
 if (inputMode == 3) FCPX();
 if (inputMode == 4) fan();
 if (inputMode == 5) music();
+if (inputMode == 6) textInput();
 
 //Serial.println(inputMode);
 
@@ -245,7 +246,7 @@ void volume(){
       }
   if ((SW7 == 0) && (underLight == 0)) {        
     underLight = 1;
-    for(int i=9; i<13; i++){
+    for(int i=8; i<12; i++){
     pixels.setPixelColor(i, pixels.Color(255, 0, 0));
     }
     pixels.show(); // Show results
@@ -455,8 +456,7 @@ void FCPX(){
         Keyboard.press(KEY_BACKSPACE);        
         Keyboard.releaseAll();
         delay(50);
-      }
-        
+      } 
 screenFCPX();
 }
 
@@ -577,6 +577,42 @@ digitalWrite(7, LOW);
 screenNote();
 }
 
+void textInput(){
+  if (SW2 == 0){
+    Keyboard.println("JC Pro Macro 2");
+    delay(50);
+  }
+  else if (SW3 == 0){
+    Keyboard.println("CAN");
+    delay(50);
+  }
+  else if (SW4 == 0){
+    Keyboard.println("DO");
+    delay(50);
+  }  
+  else if (SW9 == 0){
+    Keyboard.println("Text Input");
+    delay(50);
+  }
+  else if (SW5 == 0){
+    Keyboard.print("SW5");
+    delay(50);
+  }
+  else if (SW8 == 0){
+    Keyboard.print("SW8");
+    delay(50);
+  }
+  else if (SW6 == 0){
+    Keyboard.print("SW6");
+    delay(50);
+  }
+  else if (SW7 == 0){
+    Keyboard.print("SW7");
+    delay(50);
+  }
+    screenTextInput();
+}
+
 //======================.96" oled screen=======================
 
 void screenVolume(){
@@ -668,6 +704,15 @@ void screenFCPX(){
   display.println("");  
   //display.println("FCPX");
   //display.print("Sh0rcut");
+  display.display();
+}
+
+void screenTextInput(){
+  display.setTextSize(3); 
+  display.clearDisplay();
+  display.setCursor(0,10);
+  display.println("Text");
+  display.print("Input");
   display.display();
 }
 
