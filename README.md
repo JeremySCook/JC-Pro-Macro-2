@@ -1,5 +1,6 @@
 # JC-Pro-Macro-2
 
-JC Pro Macro 2 is based on the original JC Pro Macro board.
+More instructions to come!
 
-Repository will store code etc when ready to publish.
+When programming, will need to hit reset button right before upload. Normally this isn't needed
+witht he Pro Micro, but seems to be a consequence of it being in HID mode.
