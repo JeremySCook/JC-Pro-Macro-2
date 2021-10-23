@@ -2,5 +2,7 @@
 
 More instructions to come!
 
+Software and accessories for the JCPM 2: https://www.kickstarter.com/projects/291892408/jc-pro-macro-2-mechanical-keypad
+
 When programming, will need to hit reset button right before upload. Normally this isn't needed
-witht he Pro Micro, but seems to be a consequence of it being in HID mode.
+with the Pro Micro, but seems to be a consequence of it being in HID mode.
