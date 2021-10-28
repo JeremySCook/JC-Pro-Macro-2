@@ -1,6 +1,6 @@
 # JC-Pro-Macro-2
 
-More instructions to come!
+Now funding on Kickstarter: https://www.kickstarter.com/projects/291892408/jc-pro-macro-2-mechanical-keypad
 
 Software and accessories for the JCPM 2: https://www.kickstarter.com/projects/291892408/jc-pro-macro-2-mechanical-keypad
 
