@@ -8,3 +8,6 @@ When programming, will need to hit reset button right before upload. Normally th
 with the Pro Micro, but seems to be a consequence of it being in HID mode.
 
 Interactive BOM for .4 Rev found here: https://jeremyscook.github.io/ibom-JCPM2.html subject to change.
+
+
+![image](dims.png)
