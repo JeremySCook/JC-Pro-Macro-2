@@ -7,7 +7,8 @@ Software and accessories for the JCPM 2: https://www.kickstarter.com/projects/29
 When programming, will need to hit reset button right before upload. Normally this isn't needed
 with the Pro Micro, but seems to be a consequence of it being in HID mode.
 
-Interactive BOM for .4 Rev found here: https://jeremyscook.github.io/ibom-JCPM2.html subject to change.
+Interactive BOM for .4 Rev found here: https://jeremyscook.github.io/ibom-JCPM2.html. Board dimensions seen below.
+Both are subject to change.
 
 
 ![image](dims.png)
