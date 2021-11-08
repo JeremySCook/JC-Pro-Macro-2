@@ -53,7 +53,7 @@ int modeArrayLength = (sizeof(modeArray) / sizeof(modeArray[0]));
 
 #include <Encoder.h>
 #include <HID-Project.h>
-Encoder myEnc(1,0); //if rotation is backwards, swap 0 and 1
+Encoder myEnc(0,1); //if rotation is backwards, swap 0 and 1
 
 // Screen setup =============================================
 
@@ -93,6 +93,7 @@ Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 //============================================================
 
 void setup() {
+  delay(2000); //delay to allow programming DO NOT REMOVE!!!!!
   //Serial.begin(9600);
   pinMode(4, INPUT_PULLUP); //SW1 pushbutton (encoder button)
   pinMode(15, INPUT_PULLUP); //SW2 pushbutton
@@ -105,7 +106,7 @@ void setup() {
   pinMode(14, INPUT_PULLUP); //SW7 pushbutton
   pinMode(16, INPUT_PULLUP); //SW8 pushbutton
   pinMode(10, INPUT_PULLUP); //SW9 pushbutton
-  pinMode(9, INPUT_PULLUP); //SW10 pushbutton - acts as mode switch
+  pinMode(8, INPUT_PULLUP); //SW10 pushbutton - acts as mode switch
 
 //================end new pins
   
@@ -150,7 +151,7 @@ void loop() {
   SW7 = digitalRead(14);
   SW8 = digitalRead(16);
   SW9 = digitalRead(10);
-  SW10 = digitalRead(9);
+  SW10 = digitalRead(8);
   
   newPosition = myEnc.read();
   
