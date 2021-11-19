@@ -1,4 +1,4 @@
-# JC-Pro-Macro-2
+# JC-Pro-Macro-2 Rotary Macro Keypad with GPIO Breakouts
 
 ![image](JCPM2.jpg)
 
