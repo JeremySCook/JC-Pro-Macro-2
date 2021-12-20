@@ -53,7 +53,7 @@ int modeArrayLength = (sizeof(modeArray) / sizeof(modeArray[0]));
 
 #include <Encoder.h>
 #include <HID-Project.h>
-Encoder myEnc(0,1); //if rotation is backwards, swap 0 and 1
+Encoder myEnc(1,0); //if rotation is backwards, swap 0 and 1
 
 // Screen setup =============================================
 
@@ -255,7 +255,7 @@ void volume(){
   }
   else if ((SW7 == 0) && (underLight == 1)) {        
     underLight = 0;
-    for(int i=9; i<13; i++){
+    for(int i=8; i<12; i++){
     pixels.setPixelColor(i, pixels.Color(0, 0, 0));
     }
     pixels.show(); // Show results
