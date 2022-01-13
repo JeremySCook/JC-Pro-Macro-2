@@ -133,7 +133,7 @@ Keyboard.begin();
   pixels.clear();
 
 
-  for(int i=0; i<NUMPIXELS; i++){
+  for(int i=0; i<8; i++){
     pixels.setPixelColor(i, pixels.Color(10, 0, 0));
   }
   pixels.show(); // Show results
@@ -180,15 +180,23 @@ void loop() {
       pixels.clear();
       pixels.show();
       SW10 = 1;
-      delay(250);
+      delay(150);
     }
 
 //======select input mode:=======
 
-if (inputMode == 0) volume();
+if (inputMode == 0) {
+  pixels.setPixelColor(LEDCircle[LEDLight], pixels.Color(10, 0, 0));
+  pixels.show(); // Show results
+  volume();  
+}
 if (inputMode == 1) jiggler();
 if (inputMode == 2) slitherIO();
-if (inputMode == 3) FCPX();
+if (inputMode == 3) {
+  pixels.setPixelColor(LEDCircle[LEDLight], pixels.Color(0, 10, 0));
+  pixels.show(); // Show results
+  FCPX();
+}
 if (inputMode == 4) fan();
 if (inputMode == 5) music();
 if (inputMode == 6) textInput();
