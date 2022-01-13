@@ -45,7 +45,7 @@ long oldPulseTime = 0;
 int fanRPM = 0;
 char toneNote;
 
-int modeArray[] = {0, 1, 3, 6}; //adjust this array to modify sequence of modes - as written, change to {0, 1, 2, 3, 4, 5} to access all modes
+int modeArray[] = {0, 1, 3}; //adjust this array to modify sequence of modes - as written, change to {0, 1, 2, 3, 4, 5} to access all modes
 int inputModeIndex = 0;
 int modeArrayLength = (sizeof(modeArray) / sizeof(modeArray[0]));
 
@@ -168,7 +168,7 @@ void loop() {
 
 //=========change mode=================
 
-   if (SW10 == 0){ 
+   if (SW10 == 0){
       if (inputModeIndex < modeArrayLength){
         inputModeIndex++;
         inputMode = modeArray[inputModeIndex];
@@ -177,6 +177,8 @@ void loop() {
         inputModeIndex = 0;
         inputMode = modeArray[inputModeIndex];
       }
+      pixels.clear();
+      pixels.show();
       SW10 = 1;
       delay(250);
     }
@@ -290,7 +292,7 @@ void jiggler(){ //works with new code
       pixels.setPixelColor(5, pixels.Color(yMap, zMap, xMap));    
       pixels.setPixelColor(6, pixels.Color(xMap, yMap, zMap));    
       pixels.setPixelColor(7, pixels.Color(zMap, xMap, yMap));  
-      pixels.setPixelColor(8, pixels.Color(yMap, zMap, xMap));                                  
+      //pixels.setPixelColor(8, pixels.Color(yMap, zMap, xMap));                                  
       pixels.show(); // Show results
 
 screenJiggle(); 
