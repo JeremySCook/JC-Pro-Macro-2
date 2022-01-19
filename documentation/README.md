@@ -3,7 +3,7 @@
 ![IMAGE 1](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/IMAGE%201.jpg)
 
 If you’re viewing this page, you’ve likely either purchased, or are interested in a JC Pro Macro 2 mechanical shortcut keypad  
-(funded on Kickstarter, available soon on Tindie). While it comes with several useful functions:
+(funded ![on Kickstarter](https://www.tindie.com/products/jeremycook/jc-pro-macro-2-rotarygpio-macro-keyboard-kit/), available soon ![on Tindie](https://www.tindie.com/products/jeremycook/jc-pro-macro-2-rotarygpio-macro-keyboard-kit/)). While it comes with several useful functions:
 
     • Standard Volume/media/fan control
     • Mouse Jiggler
@@ -108,7 +108,7 @@ chime in ![here on Discord](https://discord.gg/qPEyCQAG)!
 
 ## Hardware/Ergonomics ##
 
-![IMAGE 5](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/IMAGE%205.png)
+![dims](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/dims.png)
 
 As for which button does what, the above image shows the switch labeling arrangement. An interactive diagram of components  
 etc is ![found here](https://jeremyscook.github.io/ibom-JCPM2.html). Working with FCPX, I’ve found that keeping your three most used keys on the bottom-left and keeping  
