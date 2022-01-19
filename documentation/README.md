@@ -1,4 +1,4 @@
-# JCPM 2 Quick Start Documentation (Work-in-Progress) #
+# JCPM 2 User Manual #
 
 ![IMAGE 1](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/IMAGE%201.jpg)
 
@@ -112,6 +112,8 @@ making/modifying your macro pad:
 Hopefully that give you enough info to start hacking away at the code. Line numbers should be treated as approximate, as  
 this document likely won’t always be updated. If you’d like to share what you’ve come up with, or ask a question, please  
 chime in ![here on Discord](https://discord.gg/qPEyCQAG)!
+
+**add code explainer video**
 
 ## Hardware/Ergonomics ##
 
