@@ -93,7 +93,7 @@ Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 //============================================================
 
 void setup() {
-  delay(2000); //delay to allow programming DO NOT REMOVE!!!!!
+  delay(5000); //delay to allow programming DO NOT REMOVE!!!!!
   //Serial.begin(9600);
   pinMode(4, INPUT_PULLUP); //SW1 pushbutton (encoder button)
   pinMode(15, INPUT_PULLUP); //SW2 pushbutton
