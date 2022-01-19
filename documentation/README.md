@@ -1,5 +1,7 @@
 # JCPM 2 Quick Start Documentation (Work-in-Progress) #
 
+![IMAGE 1](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/IMAGE%201.jpg)
+
 If you’re viewing this page, you’ve likely either purchased, or are interested in a JC Pro Macro 2 mechanical shortcut keypad  
 (funded on Kickstarter, available soon on Tindie). While it comes with several useful functions:
 
@@ -30,8 +32,7 @@ Of course, this may not suit your style, and can be bypassed in the program.
 
 ## Loading a Program ##
 
-First install the Arduino IDE as found here.  
-Alternatively, you can use Visual Studio Code with Platform IO or possibly other IDEs.
+First install the ![Arduino IDE](https://www.arduino.cc/en/software).
 
 **Required Libraries:**
 
@@ -39,13 +40,15 @@ Once the Arduino IDE is installed, you’ll need to add a few libraries (support
 directly see, but are used in the program). To do so, navigate to Tools > Manage Libraries, then search for and  
 install the following:
 
-INSERT IMAGE 2, 3
+![IMAGE 2](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/IMAGE%202.png)
 
-    • Encoder (Paul Stoffregen): https://www.pjrc.com/teensy/td_libs_Encoder.html
+    • Encoder (Paul Stoffregen): https://www.pjrc.com/teensy/td_libs_Encoder.html 
     • HID-Project (NicoHood): https://github.com/NicoHood/HID 
     • Adafruit_GFX Library (Adafruit): https://github.com/adafruit/Adafruit-GFX-Library
     • Adafruit SSD1306 (Adafruit): https://github.com/adafruit/Adafruit_SSD1306 
     • Adafruit NeoPixel (Adafruit): https://github.com/adafruit/Adafruit_NeoPixel
+
+![IMAGE 3](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/IMAGE%203.png)
 
 Note that several libraries may come up when you search for “Encoder,” “HID-Project,” etc., and you’ll want to  
 match up what you’re installing with the author (i.e. Paul Stoffregen). If in doubt, click on the more info link  
@@ -53,12 +56,14 @@ and compare it to the list GitHub page, which should be the same.
 
 **Open Program and Transfer**
 
-INSERT IMAGE 4
+![IMAGE 4](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/IMAGE%204.png)
 
 Download the JCPM2 program from GitHub, which should be a .ino file, or copy/paste it into the Arduino main window.  
 Select Tools > Board: > Arduino AVR Boards > Arduino Leonardo, then select Tools > Port and the board that says  
 Leonardo. If you’re not sure if you have the right port, unplug the JCPM2 and see what disappears when you try to  
 select the port again.
+
+![IMAGE 4A](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/IMAGE%204A.jpg)
 
 Click the arrow/upload button in the top-left of the Arduino IDE, then quickly hit the reset button directly below  
 the encoder knob to put the JCPM into programming mode. If the device has not been programmed yet, the reset procedure  
@@ -75,19 +80,23 @@ making/modifying your macro pad. Note that line numbers are approximate, as thin
     • Line 48: int modeArray[] = {0, 1, 3, 7};	Dictates the sequence of menu items. 0 is the standard 
     bootup screen, 1 is the mouse jiggler, and 7 is a KiCad mode I’ve been working on. If you wanted  
     to only have the bootup then mouse jiggler, it’d read as “{0,1}”.
-    • **Line 56:** Encoder myEnc(0,1);	If your encoder is functioning backwards, change this around to  
+    • Line 56: Encoder myEnc(0,1);	If your encoder is functioning backwards, change this around to  
     “(1,0).” Some encoders are wired differently than others.
-    • **Lines 95 – 109:**	You likely won’t have to mess with this, however, note the delay at the beginning  
+    
+    • Lines 95 – 109:	You likely won’t have to mess with this, however, note the delay at the beginning  
     to facilitate programming. Take that out/reduce at your own risk. Lines below that show the configuration  
     of the Pro Micro pins, and that they are set up as pullup inputs – i.e. 1 (HIGH) means a button is not pressed,  
     while 0 (LOW) means a button is pressed.
+    
     • Lines 186 – 207:	Select input mode correlates with line 48, and passes the code along to the correct  
     function in the sequence. It also sets the initial key lighting so that it immediately correlates with the  
     mode you’re in.
+    
     • Lines 215 – 714:	The meat of the program. As shown in like 240, if SW6 == 0, that is pressed per logic  
     discussed above, then do whatever is between the curly braces {}. Line 229 deals with the encoder rotation, in  
     this case “1” meaning a rotational pulse. There’s a bit of code to control the lights correctly, but what  
     you’ll want to modify is line 230 if a different input is needed. Key light colors are modified in line 234.
+    
     • Lines 718 – 832:	Defines what the OLED screen shows depending on what input mode the JCPM2 is in. It’s  
     mostly static text to show which button/knob does what, however, as shown in the default/volume screen, it can  
     change dynamically if you so desire. Each screen segment is called at the end of it’s corresponding function in  
@@ -95,19 +104,21 @@ making/modifying your macro pad. Note that line numbers are approximate, as thin
     
 Hopefully that give you enough info to start hacking away at the code. Line numbers should be treated as approximate, as  
 this document likely won’t always be updated. If you’d like to share what you’ve come up with, or ask a question, please  
-chime in here on Discord!
+chime in ![here on Discord](https://discord.gg/qPEyCQAG)!
 
 ## Hardware/Ergonomics ##
 
-As for which button does what, here’s an illustration of the switch arrangement. An interactive diagram of components  
-etc is found here. Working with FCPX, I’ve found that keeping your three most used keys on the bottom-left and keeping  
-your index, middle, and ring fingers there as a sort of home position works really well speed-wise. As far as ergonomics,  
-you may wish to have your wrist at a slight angle, and I put a 3D-printable base up here that puts it at 3 degrees.
+![IMAGE 5](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/IMAGE%205.png)
 
-INSERT IMAGE 5
+As for which button does what, the above image shows the switch labeling arrangement. An interactive diagram of components  
+etc is ![found here](https://jeremyscook.github.io/ibom-JCPM2.html). Working with FCPX, I’ve found that keeping your three most used keys on the bottom-left and keeping  
+your index, middle, and ring fingers there as a sort of home position works really well speed-wise. As far as ergonomics,  
+you may wish to have your wrist at a slight angle, and I put a 3D-printable base ![up here](https://github.com/JeremySCook/JC-Pro-Macro-2/tree/main/3DP-accessories) that puts it at 3 degrees.
+
+![IMAGE 5A](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/IMAGE%205A.png)
 
 If you’d like to use a fan with your device, a 12V PWM PC fan will work, but is underpowered and tends to be slow. I  
-suggest instead using a 5V PWM fan, such as this one by Noctua (Amazon Affiliate). It’s fairly expensive, and is colored  
+suggest instead using a 5V PWM fan, such as ![this one by Noctua](https://amzn.to/33s0bPB) (Amazon Affiliate). It’s fairly expensive, and is colored  
 like a brownie, but it works quite well. Just plug it in to the headers as shown, and with the standard code in bootup  
 mode the middle-rightmost key will turn it up, while the key below that turns it down.
 
