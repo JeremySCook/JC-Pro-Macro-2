@@ -58,7 +58,7 @@ and compare it to the list GitHub page, which should be the same.
 
 ![IMAGE 4](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/IMAGE%204.png)
 
-Download the JCPM2 program from GitHub, which should be a .ino file, or copy/paste it into the Arduino main window.  
+Download the ![JCPM2 program from GitHub](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/JCPM.ino), which should be a .ino file, or copy/paste it into the Arduino main window.  
 Select Tools > Board: > Arduino AVR Boards > Arduino Leonardo, then select Tools > Port and the board that says  
 Leonardo. If you’re not sure if you have the right port, unplug the JCPM2 and see what disappears when you try to  
 select the port again.
