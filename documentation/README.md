@@ -138,7 +138,7 @@ external devices. This is, of course, at your own risk.
 
 ## Tips: ##
 
-**If Programming Doesn’t Work:**
+**If Programming Doesn’t Work**
 
 This was originally a bit of an issue, as using a Pro Micro board as a keyboard interferes with how it’s programmed and  
 thus the reason it needs to be reset right after hitting the program button. If this doesn’t work for some reason, you  
