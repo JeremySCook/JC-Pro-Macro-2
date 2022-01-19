@@ -9,11 +9,11 @@ If you’re viewing this page, you’ve likely either purchased, or are interest
     • Mouse Jiggler
     • FCPX Helper
 
-The real power of this keyboard is that you can customize it as you see fit.  
+The real power of this keyboard, however, is that you can customize it as you see fit.  
 You also don’t need any sort of program running on your computer to take advantage of it,  
-as the computer simply sees it as a secondary keyboard. 
+as the computer simply sees it as a secondary keyboard and/or mouse. 
 
-One could argue this makes it quite future proof, however, programming it, as of this writing will  
+One could argue this makes it quite future proof, however, programming it, as of this writing, will  
 require you to use the Arduino IDE. That being said, the design is very hackable, and I hope that  
 others develop new ways to program and use it, perhaps which I’d never even thought of. This document  
 will help you get started.
@@ -136,6 +136,18 @@ bit tricky, and isn’t a “double click” as you’d perform with your mouse,
 
 If all else fails, and your device is really hosed, the Pro Micro is designed to be removed and swapped out. You can use  
 a screwdriver or similar underneath the board as a sort of lever, but be careful not to damage anything.
+
+## Future Ideas and Notes ##
+
+Would likely be possible to keep a standard program on the JCPM2, while modifying behavior through a program like  
+![AutoHotkey](https://www.autohotkey.com/).
+
+Adafruit's Pro Mirco-format ![KB2040 board](https://www.adafruit.com/product/5302) should be compatible with the  
+JC Pro Macro 2 I'm not sure if or when I'll get a chance to try it out, but would certainly be interesting.
+
+My sincere hope is that a community will develop around this device and that others develop  
+applications and hardware around it. If there's anything I can do to help **you** pull off a fun hack or improvement,
+please get in touch. My email is hi at jeremyscook.com, or Twitter and Discord are also good ways to get in touch.
 
 [![Youtube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://www.youtube.com/channel/UCrCbscxHLiaauK4H478ArRQ)
 [![Twitter URL](https://img.shields.io/twitter/follow/jeremyscook?style=flat-square&logo=twitter)](https://twitter.com/jeremyscook)
