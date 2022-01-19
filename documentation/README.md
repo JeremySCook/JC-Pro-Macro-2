@@ -10,11 +10,11 @@ If you’re viewing this page, you’ve likely either purchased, or are interest
     • FCPX Helper
 
 The real power of this keyboard, however, is that you can customize it as you see fit.  
-You also don’t need any sort of program running on your computer to take advantage of it,  
+You don’t need any sort of program running on your computer to take advantage of it,  
 as the computer simply sees it as a secondary keyboard and/or mouse. 
 
 One could argue this makes it quite future proof, however, programming it, as of this writing, will  
-require you to use the Arduino IDE. That being said, the design is very hackable, and I hope that  
+require you to use the Arduino IDE. That being said, The design is extremely hackable, and I hope that  
 others develop new ways to program and use it, perhaps which I’d never even thought of. This document  
 will help you get started.
 
@@ -24,11 +24,13 @@ If the JCPM2 came pre-programmed, plug it in via USB and wait a few seconds for 
 The rotary encoder will control a computer’s volume, while the bottom left three keys are for media control,  
 and the two keys directly to the right of the encoder shift through browser tabs. The upper-right key switch  
 controls lights under the pad, while the two below that are used to control an external PC-style fan or other  
-small load. This can all be customized, as introduced below.
+small load. This can all be customized.
 
-A smaller mode button on the left of the pad cycles through different modes, the first of which is a random  
+**Add marked image?**
+
+A smaller button on the left of the pad cycles through different modes, the first of which is a random  
 mouse jiggler, used to keep a computer awake. The second is set up for Final Cut Pro X, which I enjoy immensely.  
-Of course, this may not suit your style, and can be bypassed in the program.
+Of course, this may not be useful for you, and can be bypassed in the program.
 
 ## Loading a Program ##
 
@@ -54,11 +56,14 @@ Note that several libraries may come up when you search for “Encoder,” “HI
 match up what you’re installing with the author (i.e. Paul Stoffregen). If in doubt, click on the more info link  
 and compare it to the list GitHub page, which should be the same.
 
+Additionally, my system has these libraries on it, as well as many others. If you find you're missing a library
+please let me know so that I can update this document.
+
 **Open Program and Transfer**
 
 ![IMAGE 4](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/IMAGE%204.png)
 
-Download the ![JCPM2 program from GitHub](https://github.com/JeremySCook/JC-Pro-Macro-2/tree/main/code), which should be a .ino file, or copy/paste it into the Arduino main window.  
+Download the ![JCPM2 program from GitHub](https://github.com/JeremySCook/JC-Pro-Macro-2/tree/main/code), which is a .ino file, or copy/paste it into the Arduino main window.  
 Select Tools > Board: > Arduino AVR Boards > Arduino Leonardo, then select Tools > Port and the board that says  
 Leonardo. If you’re not sure if you have the right port, unplug the JCPM2 and see what disappears when you try to  
 select the port again.
@@ -66,20 +71,22 @@ select the port again.
 ![IMAGE 4A](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/IMAGE%204A.jpg)
 
 Click the arrow/upload button in the top-left of the Arduino IDE, then quickly hit the reset button directly below  
-the encoder knob to put the JCPM into programming mode. If the device has not been programmed yet, the reset procedure  
-may not be needed, but shouldn’t hurt.
+the encoder knob on the device itself to put the JCPM into programming mode. If the JCPM2 has not been programmed  
+yet, the reset procedure may not be needed, but this shouldn’t hurt.
 
 If all is well, you should see some blinking lights on the bottom of the JCPM2, a few seconds for reset, and then normal  
-operation. You’re now at square 1, which can be a very good thing if your subsequent modifications are incorrect.
+operation (with some extra lights). You’re now at square 1, which can be a very good thing if your subsequent modifications 
+are incorrect.
 
 ## The Standard Program ##
 
 While this won’t cover ever aspect of the JCPM2 code, this will address the highlights that you’ll need to know when  
-making/modifying your macro pad. Note that line numbers are approximate, as things will change over time:
+making/modifying your macro pad:
 
     • Line 48: int modeArray[] = {0, 1, 3, 7};	Dictates the sequence of menu items. 0 is the standard 
     bootup screen, 1 is the mouse jiggler, and 7 is a KiCad mode I’ve been working on. If you wanted  
     to only have the bootup then mouse jiggler, it’d read as “{0,1}”.
+    
     • Line 56: Encoder myEnc(0,1);	If your encoder is functioning backwards, change this around to  
     “(1,0).” Some encoders are wired differently than others.
     
@@ -110,14 +117,16 @@ chime in ![here on Discord](https://discord.gg/qPEyCQAG)!
 
 ![dims](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/dims.png)
 
-As for which button does what, the above image shows the switch labeling arrangement. An interactive diagram of components  
-etc is ![found here](https://jeremyscook.github.io/ibom-JCPM2.html). Working with FCPX, I’ve found that keeping your three most used keys on the bottom-left and keeping  
-your index, middle, and ring fingers there as a sort of home position works really well speed-wise. As far as ergonomics,  
-you may wish to have your wrist at a slight angle, and I put a 3D-printable base ![up here](https://github.com/JeremySCook/JC-Pro-Macro-2/tree/main/3DP-accessories) that puts it at 3 degrees.
+As for which button does what, the above image shows the switch labeling arrangement (as well as dimensions if you'd like  
+to design hardware aroudn it. An interactive diagram of the components is ![found here](https://jeremyscook.github.io/ibom-JCPM2.html). 
+
+Working with FCPX, I’ve found that keeping your three most used keys on the bottom-left and keeping your index, middle, 
+and ring fingers there as a sort of home position works really well. As far as ergonomics, you may wish to have your wrist  
+at a slight angle, and I put a 3D-printable base ![up here](https://github.com/JeremySCook/JC-Pro-Macro-2/tree/main/3DP-accessories) that puts it at 3 degrees.
 
 ![IMAGE 5A](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/IMAGE%205A.png)
 
-If you’d like to use a fan with your device, a 12V PWM PC fan will work, but is underpowered and tends to be slow. I  
+The devide is capable of controlling a small PC fan. A 12V PWM PC fan will work, but is underpowered and tends to be slow. I  
 suggest instead using a 5V PWM fan, such as ![this one by Noctua](https://amzn.to/33s0bPB) (Amazon Affiliate). It’s fairly expensive, and is colored  
 like a brownie, but it works quite well. Just plug it in to the headers as shown, and with the standard code in bootup  
 mode the middle-rightmost key will turn it up, while the key below that turns it down.
@@ -131,8 +140,10 @@ external devices. This is, of course, at your own risk.
 
 This was originally a bit of an issue, as using a Pro Micro board as a keyboard interferes with how it’s programmed and  
 thus the reason it needs to be reset right after hitting the program button. If this doesn’t work for some reason, you  
-may be able to reprogram it by hitting the reset button twice in a row just before hitting the program button. This is a  
-bit tricky, and isn’t a “double click” as you’d perform with your mouse, but more of a reset-.5sec-reset sequence.
+may be able to reprogram it by hitting the reset button twice in a row just before hitting the program button, This is  
+a bit tricky, and isn’t a “double click” as you’d perform with your mouse, but more of a reset-.5sec-reset sequence.  
+The delay that's programmed in makes things a lot easier, as it waits to go into HID mode for several seconds. The  
+downside is that it takes longer to "boot," but this seems like a reasonalbe tradeoff.
 
 If all else fails, and your device is really hosed, the Pro Micro is designed to be removed and swapped out. You can use  
 a screwdriver or similar underneath the board as a sort of lever, but be careful not to damage anything.
@@ -144,6 +155,10 @@ Would likely be possible to keep a standard program on the JCPM2, while modifyin
 
 Adafruit's Pro Mirco-format ![KB2040 board](https://www.adafruit.com/product/5302) should be compatible with the  
 JC Pro Macro 2 I'm not sure if or when I'll get a chance to try it out, but would certainly be interesting.
+
+The device was developed for MacOS, but the standard shortcuts should also work for Windows PCs. FCPX won't be useful
+with PCs of course. If you do poke around in the code, there are several additional modes that come disabled in the
+program, but may not be quite as useful or developed.
 
 My sincere hope is that a community will develop around this device and that others develop  
 applications and hardware around it. If there's anything I can do to help **you** pull off a fun hack or improvement,
