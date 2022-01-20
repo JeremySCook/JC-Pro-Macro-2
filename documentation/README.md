@@ -18,6 +18,10 @@ require you to use the Arduino IDE. That being said, The design is extremely hac
 others develop new ways to program and use it, perhaps which I’d never even thought of. This document  
 will help you get started.
 
+## Video (audio off, plan to redo) ##
+
+[![Watch the video](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/thumbnail1.jpg)](https://www.youtube.com/watch?v=02vTS2Ko5B4)
+
 ## Basic Operation ##
 
 If the JCPM2 came pre-programmed, plug it in via USB and wait a few seconds for it to become active.  
@@ -25,8 +29,6 @@ The rotary encoder will control a computer’s volume, while the bottom left thr
 and the two keys directly to the right of the encoder shift through browser tabs. The upper-right key switch  
 controls lights under the pad, while the two below that are used to control an external PC-style fan or other  
 small load. This can all be customized.
-
-**Add marked image?**
 
 A smaller button on the left of the pad cycles through different modes, the first of which is a random  
 mouse jiggler, used to keep a computer awake. The second is set up for Final Cut Pro X, which I enjoy immensely.  
