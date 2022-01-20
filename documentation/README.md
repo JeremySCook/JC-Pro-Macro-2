@@ -18,9 +18,9 @@ require you to use the Arduino IDE. That being said, The design is extremely hac
 others develop new ways to program and use it, perhaps which I’d never even thought of. This document  
 will help you get started.
 
-## Video (audio off, plan to redo) ##
+## Video (YouTube - audio off, plan to redo) ##
 
-[![Watch the video](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/thumbnail.jpg)](https://www.youtube.com/watch?v=02vTS2Ko5B4)
+[![Watch the video](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/thumbnailx.jpg)](https://www.youtube.com/watch?v=02vTS2Ko5B4)
 
 ## Basic Operation ##
 
