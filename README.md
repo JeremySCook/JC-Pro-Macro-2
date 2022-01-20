@@ -8,4 +8,4 @@ Pre-order now on Tindie (waitlist): https://www.tindie.com/products/jeremycook/j
 
 # Intro Video (YouTube):
 
-[![Watch the video](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/thumbnail.jpg)](https://www.youtube.com/watch?v=Pz0toa3XK4c)
+[![Watch the video](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/thumbnail1.jpg)](https://www.youtube.com/watch?v=Pz0toa3XK4c)
