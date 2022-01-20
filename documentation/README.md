@@ -20,7 +20,7 @@ will help you get started.
 
 ## Video (audio off, plan to redo) ##
 
-[![Watch the video](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/thumbnail1.jpg)](https://www.youtube.com/watch?v=02vTS2Ko5B4)
+[![Watch the video](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/thumbnail.jpg)](https://www.youtube.com/watch?v=02vTS2Ko5B4)
 
 ## Basic Operation ##
 
