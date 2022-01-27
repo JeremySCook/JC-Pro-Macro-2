@@ -3,10 +3,6 @@
 //Includes support for 1306 display
 //Reference: https://github.com/NicoHood/HID/blob/master/src/KeyboardLayouts/ImprovedKeylayouts.h
 //Reference: https://arduinogetstarted.com/tutorials/arduino-button-long-press-short-press 
-//
-//To do:
-//Figure out what to do with bottom support - remake offset so locks in?
-//caps lock code? - does not work properly on Mac it seems
 
 // Declare variables etc=========================================
 
