@@ -20,7 +20,6 @@ List of items to be put in JCPM2 kits WIP
     • (4) standoffs
     • (4) short screws
     • (3) long screws
-    •
 
 ## OPTIONS ##
 
