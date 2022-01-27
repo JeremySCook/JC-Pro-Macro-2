@@ -10,7 +10,7 @@ List of items to be put in JCPM2 kits WIP
     • Basic or premium knob
     • Parts Kit*
 
-## PARTS KIT CONTENTS WT = .32 Oz ##
+## PARTS KIT CONTENTS WT = .31 - .32 Oz ##
 
     • Socket
     • (2) buttons
