@@ -10,11 +10,17 @@ List of items to be put in JCPM2 kits WIP
     • Basic or premium knob
     • Parts Kit*
 
-## PARTS KIT CONTENTS WT = ##
+## PARTS KIT CONTENTS WT = .32 Oz ##
 
     • Socket
     • (2) buttons
-    
+    • Encoder
+    • Female header, 4 pin
+    • bumpers
+    • (4) standoffs
+    • (4) short screws
+    • (3) long screws
+    •
 
 ## OPTIONS ##
 
@@ -22,11 +28,3 @@ List of items to be put in JCPM2 kits WIP
     • Premium knob + Allen Key
     • Keyswitch Plate
     • USB Cable
-
-
-ADSF
-
-ASDF
-
-    
-    ## PARTS KIT CONTENTS ##
