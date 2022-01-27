@@ -4,9 +4,9 @@ List of items to be put in JCPM2 kits WIP
 
     • Main PCB
     • Pro Micro
-    • 8 keycaps
-    • 8 key switches
     • Base
+    • 8 key switches
+    • 8 keycaps
     • Basic or premium knob
     • Parts Kit*
 
@@ -27,3 +27,11 @@ List of items to be put in JCPM2 kits WIP
     • Premium knob + Allen Key
     • Keyswitch Plate
     • USB Cable
+
+## Procedure ##
+
+    • Put all parts in for standard order except knob
+    • Add knob and options per order
+    
+## Procedure ##
+asdfsad
