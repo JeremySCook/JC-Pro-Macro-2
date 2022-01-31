@@ -72,9 +72,13 @@ select the port again.
 
 ![IMAGE 4A](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/IMAGE%204A.jpg)
 
-Click the arrow/upload button in the top-left of the Arduino IDE, then quickly hit the reset button directly below  
-the encoder knob on the device itself to put the JCPM into programming mode. If the JCPM2 has not been programmed  
-yet, the reset procedure may not be needed, but this shouldn’t hurt.
+Click the arrow/upload button in the top-left of the Arduino IDE, then hit the reset button directly below  
+the encoder knob on the device itself right when the Arduino IDE says uploading, or immediately before. Timing
+is critical here, so it may take you a few tries to ge tit correct.
+
+**need to verify timing/make a new video - will be done soon hopefully.
+
+If the JCPM2 has not been programmed yet, the reset procedure may not be needed, but this shouldn’t hurt.
 
 If all is well, you should see some blinking lights on the bottom of the JCPM2, a few seconds for reset, and then normal  
 operation (with some extra lights). You’re now at square 1, which can be a very good thing if your subsequent modifications 
