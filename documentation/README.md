@@ -76,7 +76,7 @@ Click the arrow/upload button in the top-left of the Arduino IDE, then hit the r
 the encoder knob on the device itself right when the Arduino IDE says uploading, or immediately before. Timing
 is critical here, so it may take you a few tries to ge tit correct.
 
-**need to verify timing/make a new video - will be done soon hopefully.
+### **need to verify timing/make a new video - will be done soon hopefully. ###
 
 If the JCPM2 has not been programmed yet, the reset procedure may not be needed, but this shouldn’t hurt.
 
