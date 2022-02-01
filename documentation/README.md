@@ -74,9 +74,7 @@ select the port again.
 
 Click the arrow/upload button in the top-left of the Arduino IDE, then hit the reset button directly below  
 the encoder knob on the device itself right when the Arduino IDE says uploading, or immediately before. Timing
-is critical here, so it may take you a few tries to ge tit correct.
-
-### **need to verify timing/make a new video - will be done soon hopefully. ###
+is critical here, so it may take you a few tries to get it correct.
 
 If the JCPM2 has not been programmed yet, the reset procedure may not be needed, but this shouldn’t hurt.
 
@@ -144,17 +142,7 @@ external devices. This is, of course, at your own risk.
 
 ## Tips: ##
 
-**If Programming Doesn’t Work**
-
-This was originally a bit of an issue, as using a Pro Micro board as a keyboard interferes with how it’s programmed and  
-thus the reason it needs to be reset right after hitting the program button. If this doesn’t work for some reason, you  
-may be able to reprogram it by hitting the reset button twice in a row just before hitting the program button, This is  
-a bit tricky, and isn’t a “double click” as you’d perform with your mouse, but more of a reset-.5sec-reset sequence.  
-The delay that's programmed in makes things a lot easier, as it waits to go into HID mode for several seconds. The  
-downside is that it takes longer to "boot," but this seems like a reasonalbe tradeoff.
-
-If all else fails, and your device is really hosed, the Pro Micro is designed to be removed and swapped out. You can use  
-a screwdriver or similar underneath the board as a sort of lever, but be careful not to damage anything.
+**If Programming Doesn’t Work - Need to update**
 
 ## Future Ideas and Notes ##
 
