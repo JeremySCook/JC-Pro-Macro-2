@@ -73,7 +73,7 @@ select the port again.
 ![IMAGE 4A](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/IMAGE%204A.jpg)
 
 Click the arrow/upload button in the top-left of the Arduino IDE, then hit the reset button directly below  
-the encoder knob on the device itself right when the Arduino IDE says uploading, or immediately before. Timing
+the encoder knob on the device itself right when the Arduino IDE says uploading, or immediately before. ![Timing](https://twitter.com/JeremySCook/status/1488512927321792515)
 is critical here, so it may take you a few tries to get it correct.
 
 If the JCPM2 has not been programmed yet, the reset procedure may not be needed, but this shouldn’t hurt.
@@ -84,8 +84,10 @@ are incorrect.
 
 ## The Standard Program ##
 
-While this won’t cover ever aspect of the JCPM2 code, this will address the highlights that you’ll need to know when  
-making/modifying your macro pad:
+While this won’t cover ever aspect of the JCPM2 code, the items below will address the highlights that you’ll need to know when  
+making/modifying your macro pad. The HID functions (i.e. what keys do) are largely defined in ![this layout listing](https://github.com/NicoHood/HID/blob/master/src/KeyboardLayouts/ImprovedKeylayouts.h),  
+so be sure to poke around there if there is something you'd like your JCPM2 to do. That HID libray was instrumental  
+in getting the JCPM 2 functional.
 
     • Line 48: int modeArray[] = {0, 1, 3, 7};	Dictates the sequence of menu items. 0 is the standard 
     bootup screen, 1 is the mouse jiggler, and 7 is a KiCad mode I’ve been working on. If you wanted  
