@@ -18,9 +18,9 @@ require you to use the Arduino IDE. That being said, The design is extremely hac
 others develop new ways to program and use it, perhaps which I’d never even thought of. This document  
 will help you get started.
 
-## Video (YouTube - audio off, plan to redo) ##
+## Video ##
 
-[![Watch the video](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/thumbnailx.jpg)](https://www.youtube.com/watch?v=02vTS2Ko5B4)
+[![Watch the video](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/thumbnailx.png)](https://www.youtube.com/watch?v=YnbSV4wkwSk)
 
 ## Basic Operation ##
 
@@ -118,8 +118,6 @@ in getting the JCPM 2 functional.
 Hopefully that give you enough info to start hacking away at the code. Line numbers should be treated as approximate, as  
 this document likely won’t always be updated. If you’d like to share what you’ve come up with, or ask a question, please  
 chime in ![here on Discord](https://discord.gg/qPEyCQAG)!
-
-**add code explainer video**
 
 ## Hardware/Ergonomics ##
 
