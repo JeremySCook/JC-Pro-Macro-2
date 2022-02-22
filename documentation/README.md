@@ -117,7 +117,7 @@ in getting the JCPM 2 functional.
     
 Hopefully that give you enough info to start hacking away at the code. Line numbers should be treated as approximate, as  
 this document likely won’t always be updated. If you’d like to share what you’ve come up with, or ask a question, please  
-chime in ![here on Discord](https://discord.gg/qPEyCQAG)!
+chime in on Discord: https://discord.gg/7DkuTrq8
 
 ## Hardware/Ergonomics ##
 
