@@ -124,7 +124,7 @@ chime in on Discord: https://discord.gg/7DkuTrq8
 ![dims](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/dims.png)
 
 As for which button does what, the above image shows the switch labeling arrangement (as well as dimensions if you'd like  
-to design hardware aroudn it.
+to design hardware around it.
 
 Working with FCPX, I’ve found that keeping your three most used keys on the bottom-left and keeping your index, middle, 
 and ring fingers there as a sort of home position works really well. As far as ergonomics, you may wish to have your wrist  
@@ -157,7 +157,7 @@ with PCs of course. If you do poke around in the code, there are several additio
 program, but may not be quite as useful or developed.
 
 My sincere hope is that a community will develop around this device and that others develop  
-applications and hardware around it. If there's anything I can do to help **you** pull off a fun hack or improvement,
+applications and hardware for it. If there's anything I can do to help **you** pull off a fun hack or improvement,
 please get in touch. My email is hi at jeremyscook.com, or Twitter and Discord are also good ways to get in touch.
 
 [![Youtube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://www.youtube.com/channel/UCrCbscxHLiaauK4H478ArRQ)
