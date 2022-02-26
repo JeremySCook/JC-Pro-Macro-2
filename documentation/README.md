@@ -124,7 +124,7 @@ chime in on Discord: https://discord.gg/7DkuTrq8
 ![dims](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/dims.png)
 
 As for which button does what, the above image shows the switch labeling arrangement (as well as dimensions if you'd like  
-to design hardware aroudn it. An interactive diagram of the components is ![found here](https://jeremyscook.github.io/ibom-JCPM2.html). 
+to design hardware aroudn it.
 
 Working with FCPX, I’ve found that keeping your three most used keys on the bottom-left and keeping your index, middle, 
 and ring fingers there as a sort of home position works really well. As far as ergonomics, you may wish to have your wrist  
