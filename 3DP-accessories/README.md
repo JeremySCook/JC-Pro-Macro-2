@@ -12,3 +12,5 @@ is a much shorter print, and could be useful in a variety of situations generall
 ## Other Print Listings ##
 
 Screen support by orthodoxmonster: https://www.thingiverse.com/thing:5228879
+
+Case with 3D-printed top/bottom middle acrlic: see kureator-case directory
