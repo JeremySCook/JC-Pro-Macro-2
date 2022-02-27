@@ -35,7 +35,7 @@ while resting on the keys. Alternatively, one of the printed jigs can be very he
 ## Step 4 A Solder Optional OLED Screen ##
 
 Solder female 4-pin header to through-holes on right. Solder rightmost pads to match ghe Vcc/Gnd configuration of OLED  
-screen, most commonly: JP4 middle to +, JP3, middle to -.
+screen, most commonly: JP4 middle to -, JP3, middle to +.
 
 ## Step 5 Mechanical Assembly ##
 
