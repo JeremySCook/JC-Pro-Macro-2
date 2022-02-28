@@ -9,12 +9,12 @@
 bool SW1 = 1; //encoder button
 bool SW2 = 1; //lower-left keyswitch
 bool SW3 = 1;
-bool SW4 = 1; //lower-right keyswitch
+bool SW4 = 1; 
 bool SW5 = 1;
-bool SW6 = 1; //upper-right keyswitch
-bool SW7 = 1; //JCPM 2 key
-bool SW8 = 1; //JCPM 2 key
-bool SW9 = 1; //JCPM 2 key
+bool SW6 = 1; 
+bool SW7 = 1; //upper-right keyswitch
+bool SW8 = 1; 
+bool SW9 = 1; //lower-right keyswitch
 bool SW10 = 1; //JCPM 2 mode switch
 
 bool underLight = 0;
