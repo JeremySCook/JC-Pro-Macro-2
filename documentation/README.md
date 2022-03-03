@@ -78,6 +78,14 @@ is critical here, so it may take you a few tries to get it correct.
 
 If the JCPM2 has not been programmed yet, the reset procedure may not be needed, but this shouldn’t hurt.
 
+## --Update 2/3/2022 - EASY PROGRAMMING-- ###
+
+If newest code is loaded, thanks to discord user apoxa, includes a programming mode that you can go into by pressing the  
+mode button, plus the lower-right keyswitch. In this mode the OLED screen will say "Upload Code!" and you can upload it  
+from the Arduino IDE without worrying about physically resetting the board.
+
+## --End Update-- ##
+
 If all is well, you should see some blinking lights on the bottom of the JCPM2, a few seconds for reset, and then normal  
 operation (with some extra lights). You’re now at square 1, which can be a very good thing if your subsequent modifications 
 are incorrect.
