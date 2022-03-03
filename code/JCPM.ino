@@ -89,7 +89,7 @@ Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 //============================================================
 
 void setup() {
-  delay(5000); //delay to allow programming DO NOT REMOVE!!!!!
+  delay(500); //formerly longer delay to allow programming
   //Serial.begin(9600);
   pinMode(4, INPUT_PULLUP); //SW1 pushbutton (encoder button)
   pinMode(15, INPUT_PULLUP); //SW2 pushbutton
@@ -160,6 +160,14 @@ void loop() {
     decrement = 1;
     delay(5);
     oldPosition = myEnc.read();
+  }
+
+//========select upload mode==================
+    
+  // Jump into upload mode for mode select and lower-right button
+  if (SW9 == 0 && SW10 == 0) {
+    screenUpload();
+    delay(3600000); // I don't know why, but this delay allows to simply upload code.
   }
 
 //=========change mode=================
@@ -720,6 +728,14 @@ void screenTextInput(){
   display.setCursor(0,10);
   display.println("Text");
   display.print("Input");
+  display.display();
+}
+
+void screenUpload(){
+  display.setTextSize(3);
+  display.clearDisplay();
+  display.setCursor(0,10);
+  display.println("Upload Code!");
   display.display();
 }
 
