@@ -106,7 +106,7 @@ pinMode(6, OUTPUT);
 
 //============================================================
   
-  delay(5000); //delay to allow programming DO NOT REMOVE!!!!!
+  delay(500); //formerly longer delay to allow programming
   //Serial.begin(9600);
   pixels.clear();
   pixels.show(); // Show results
@@ -168,6 +168,14 @@ void loop() {
     oldPosition = myEnc.read();
   }
 
+//========select upload mode==================
+    
+  // Jump into upload mode for mode select and lower-right button
+  if (SW9 == 0 && SW10 == 0) {
+    screenUpload();
+    delay(3600000); // I don't know why, but this delay allows to simply upload code.
+  }
+
 //=========change mode=================
 
    if (SW10 == 0){
@@ -183,7 +191,7 @@ void loop() {
       pixels.show();
       SW10 = 1;
       delay(150);
-    }
+   }
 
 //======select input mode:=======
 
@@ -825,6 +833,14 @@ void screenKiCad(){
   display.println("");  
   //display.println("FCPX");
   //display.print("Sh0rcut");
+  display.display();
+}
+
+void screenUpload(){
+  display.setTextSize(3);
+  display.clearDisplay();
+  display.setCursor(0,10);
+  display.println("Upload Code!");
   display.display();
 }
 
