@@ -1,5 +1,7 @@
 # JC-Pro-Macro-2 Rotary Macro Keypad with GPIO Breakouts
 
+JC Pro Macro 2 macro keyboard and rotary input, with GPIO breakouts. Uses an ATmega32u4 Pro Micro dev board for HID functionality.
+
 Available now on Tindie: https://www.tindie.com/products/jeremycook/jc-pro-macro-2-rotarygpio-macro-keyboard-kit/
 
 ![image](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/JCPM2.jpg)
