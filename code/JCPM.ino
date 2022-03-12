@@ -259,6 +259,11 @@ void volume(){
         Consumer.write(MEDIA_PREVIOUS);
         delay(50);
       }
+  if (SW1 == 0) { //Emulate keyboard enter button when encoder knob is pressed down:
+      Keyboard.press(KEY_ENTER);
+      Keyboard.release(KEY_ENTER);
+      delay(50);
+    }
   if ((SW7 == 0) && (underLight == 0)) {        
     underLight = 1;
     for(int i=8; i<12; i++){
