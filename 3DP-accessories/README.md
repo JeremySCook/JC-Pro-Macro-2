@@ -9,8 +9,7 @@ installed.
 Jig-EC-11-Helper.stl should not be needed if using the either KeySwitch jig, however  
 is a much shorter print, and could be useful in a variety of situations generally.
 
-## Other Print Listings ##
+## External Print Listings ##
 
 Screen support by orthodoxmonster: https://www.thingiverse.com/thing:5228879
 
-Case with 3D-printed top/bottom middle acrlic: see kureator-case directory
