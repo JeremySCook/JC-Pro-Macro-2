@@ -1,5 +1,7 @@
 # 3D Printed accessories for the JCPM2 #
 
+Lots of acessories to personalize your JCPM2!
+
 ## External Print Listings ##
 
 Screen support by orthodoxmonster: https://www.thingiverse.com/thing:5228879
