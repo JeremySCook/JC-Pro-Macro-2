@@ -1,4 +1,4 @@
-Case created by Dan H.
+1-piece enclosure created by Dan H.
 
 [See here](https://github.com/JeremySCook/JC-Pro-Macro-2/tree/main/3DP-accessories/DanH-keycaps) for keycaps
 
