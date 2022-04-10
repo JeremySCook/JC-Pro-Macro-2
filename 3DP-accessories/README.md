@@ -9,6 +9,9 @@ installed.
 Jig-EC-11-Helper.stl should not be needed if using the either KeySwitch jig, however  
 is a much shorter print, and could be useful in a variety of situations generally.
 
+
+![image](https://github.com/JeremySCook/JC-Pro-Macro-2/blob/main/documentation/images/JCPM2.jpg)
+
 ## External Print Listings ##
 
 Screen support by orthodoxmonster: https://www.thingiverse.com/thing:5228879
