@@ -17,9 +17,11 @@ bool SW4 = 1;
 bool SW5 = 1;
 bool SW6 = 1; 
 bool SW7 = 1; //upper-right keyswitch
-bool SW8 = 1; 
+bool SW8 = 1;
 bool SW9 = 1; //lower-right keyswitch
 bool SW10 = 1; //JCPM 2 mode switch
+bool pedalLeft = 1; //optional left foot pedal
+bool pedalRight = 1; //optional right foot pedal
 
 bool underLight = 0;
 
@@ -120,6 +122,8 @@ pinMode(6, OUTPUT);
   pinMode(16, INPUT_PULLUP); //SW8 pushbutton
   pinMode(10, INPUT_PULLUP); //SW9 pushbutton
   pinMode(8, INPUT_PULLUP); //SW10 pushbutton - acts as mode switch
+  pinMode(9, INPUT_PULLUP); //optional left pedal
+  pinMode(7, INPUT_PULLUP); //optional right pedal
 
 //=============================================================
   
@@ -141,7 +145,6 @@ Keyboard.begin();
 
 }
 
-
 void loop() {
 
   SW1 = digitalRead(4);
@@ -154,6 +157,8 @@ void loop() {
   SW8 = digitalRead(16);
   SW9 = digitalRead(10);
   SW10 = digitalRead(8);
+  pedalLeft = digitalRead(9);
+  pedalRight = digitalRead(7);
   
   newPosition = myEnc.read();
   
@@ -273,6 +278,18 @@ void volume(){
         Consumer.write(MEDIA_PREVIOUS);
         delay(50);
       }
+  if (pedalLeft == 0) {
+        Keyboard.press(KEY_LEFT_SHIFT); //does not seem to work for actual letters, just mouse
+        //delay(200);
+        pedalLeft = digitalRead(9);
+        //delay(200);
+  }
+
+  if (pedalLeft == 1) {
+        Keyboard.releaseAll();
+}
+
+  
   if ((SW7 == 0) && (underLight == 0)) {        
     underLight = 1;
     for(int i=8; i<12; i++){
@@ -747,6 +764,8 @@ void screenVolume(){
   display.print(SW8);
   display.print(SW9);
   display.print(SW10);
+  display.print(pedalLeft);
+  display.print(pedalRight);
   display.display();
   //Serial.println(SW1);
   //delay(10);
