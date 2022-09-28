@@ -1,5 +1,5 @@
-#dependencies: https://github.com/adafruit/Adafruit_CircuitPython_Bundle/releases/tag/20220928
-#using 7.x, may not be complete
+#dependencies found here: https://github.com/adafruit/Adafruit_CircuitPython_Bundle/releases/tag/20220928 7.x bundle
+#adafruit_display_text adafruit_displayio_ssd1306
 
 import time
 import digitalio
