@@ -1,5 +1,6 @@
 #dependencies found here: https://github.com/adafruit/Adafruit_CircuitPython_Bundle/releases/tag/20220928 7.x bundle
 #adafruit_display_text adafruit_displayio_ssd1306
+#keycodes available: https://github.com/adafruit/Adafruit_CircuitPython_HID/tree/main/adafruit_hid
 
 import time
 import digitalio
@@ -8,6 +9,9 @@ import usb_hid
 
 from adafruit_hid.keyboard import Keyboard
 from adafruit_hid.keycode import Keycode
+from adafruit_hid.keyboard_layout_us import KeyboardLayoutUS
+from adafruit_hid.consumer_control import ConsumerControl
+from adafruit_hid.consumer_control_code import ConsumerControlCode
 
 #1306 display#########
 
@@ -79,6 +83,7 @@ SW8_PIN = board.MOSI
 SW9_PIN = board.D10
 
 keyboard = Keyboard(usb_hid.devices)
+cc = ConsumerControl(usb_hid.devices)
 
 SW2 = digitalio.DigitalInOut(SW2_PIN)
 SW2.direction = digitalio.Direction.INPUT
@@ -112,39 +117,34 @@ SW9 = digitalio.DigitalInOut(SW9_PIN)
 SW9.direction = digitalio.Direction.INPUT
 SW9.pull = digitalio.Pull.UP
 
-#keycodes available: https://github.com/adafruit/Adafruit_CircuitPython_HID/tree/main/adafruit_hid
-
 while True:
     
     if not SW2.value:
         print("switch 2 pressed")
-        keyboard.press(Keycode.A)
+        cc.send(ConsumerControlCode.SCAN_PREVIOUS_TRACK)
         time.sleep(0.2)
-        keyboard.release(Keycode.A)
     
     if not SW3.value:
         print("switch 3 pressed")
-        keyboard.press(Keycode.B)
+        cc.send(ConsumerControlCode.PLAY_PAUSE)
         time.sleep(0.2)
-        keyboard.release(Keycode.B)
  
     if not SW4.value:
         print("switch 4 pressed")
-        keyboard.press(Keycode.C)
+        cc.send(ConsumerControlCode.SCAN_NEXT_TRACK)
         time.sleep(0.2)
-        keyboard.release(Keycode.C)
         
     if not SW5.value:
         print("switch 5 pressed")
-        keyboard.press(Keycode.D)
+        keyboard.press(Keycode.LEFT_CONTROL, Keycode.LEFT_SHIFT, Keycode.TAB)
         time.sleep(0.2)
-        keyboard.release(Keycode.D)
+        keyboard.release(Keycode.LEFT_CONTROL, Keycode.LEFT_SHIFT, Keycode.TAB)
  
     if not SW6.value:
         print("switch 6 pressed")
-        keyboard.press(Keycode.E)
+        keyboard.press(Keycode.LEFT_CONTROL, Keycode.TAB)
         time.sleep(0.2)
-        keyboard.release(Keycode.E)
+        keyboard.release(Keycode.LEFT_CONTROL, Keycode.TAB)
         
     if not SW7.value:
         print("switch 7 pressed")
@@ -168,3 +168,6 @@ while True:
     if last_position is None or position != last_position:
         print(position)
     last_position = position
+
+# TO DO - add in VOLUME_INCREMENT and VOLUME_DECREMENT to encoder
+# Potentially use example code from: https://learn.adafruit.com/bluetooth-le-hid-volume-knob-with-circuitpython/code-the-ble-volume-knob
