@@ -26,7 +26,6 @@ i2c = busio.I2C(board.D3, board.D2)
 
 display_bus = displayio.I2CDisplay(i2c, device_address=0x3C)
 
-#######################
 
 WIDTH = 128
 HEIGHT = 32  # Change to 64 if needed
@@ -69,7 +68,7 @@ splash.append(text_area)
 import rotaryio
 import board
 encoder = rotaryio.IncrementalEncoder(board.D0, board.D1)
-last_position = None
+last_position = encoder.position
 
 ########################
 
@@ -164,10 +163,19 @@ while True:
         time.sleep(0.2)
         keyboard.release(Keycode.H)
         
+##encoder code
+        
     position = encoder.position    
     if last_position is None or position != last_position:
         print(position)
+    
+    delta = position - last_position
     last_position = position
-
-# TO DO - add in VOLUME_INCREMENT and VOLUME_DECREMENT to encoder
-# Potentially use example code from: https://learn.adafruit.com/bluetooth-le-hid-volume-knob-with-circuitpython/code-the-ble-volume-knob
+    
+    if delta > 0:
+        print("encoder increased - volume increase")
+        cc.send(ConsumerControlCode.VOLUME_DECREMENT)
+        
+    if delta < 0:
+        print("endoder decreased - volume increase")
+        cc.send(ConsumerControlCode.VOLUME_INCREMENT)
