@@ -85,6 +85,7 @@ SW6_PIN = board.A3
 SW7_PIN = board.MISO
 SW8_PIN = board.MOSI
 SW9_PIN = board.D10
+SW10_PIN = board.D8 #Mode pin
 
 keyboard = Keyboard(usb_hid.devices)
 cc = ConsumerControl(usb_hid.devices)
@@ -121,8 +122,11 @@ SW9 = digitalio.DigitalInOut(SW9_PIN)
 SW9.direction = digitalio.Direction.INPUT
 SW9.pull = digitalio.Pull.UP
 
-def function2():
-    print("function2")
+SW10 = digitalio.DigitalInOut(SW10_PIN)
+SW10.direction = digitalio.Direction.INPUT
+SW10.pull = digitalio.Pull.UP
+
+##Keys Function###########################
     
 def keys():
     if not SW2.value:
@@ -169,6 +173,12 @@ def keys():
         keyboard.press(Keycode.H)
         time.sleep(0.2)
         keyboard.release(Keycode.H)
+ 
+    if not SW10.value:
+        print("switch 10 pressed")
+        keyboard.press(Keycode.I)
+        time.sleep(0.2)
+        keyboard.release(Keycode.I)
         
 
 while True:
