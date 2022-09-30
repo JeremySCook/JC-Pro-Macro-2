@@ -169,28 +169,40 @@ def keys():
         keyboard.press(Keycode.H)
         time.sleep(0.2)
         keyboard.release(Keycode.H)
+        
 
 while True:
     
     keys()
         
     position = encoder.position
-    
+    delta = 0
     if last_position is None or position != last_position:
-        print(position)
+        #print('encoder postion', position)
     
-    delta = position - last_position
-    last_position = position
+        delta = position - last_position
+        last_position = position
     
     if delta > 0:
-        print("encoder increased - volume increase")
+        #print("encoder down - volume decrease")
         cc.send(ConsumerControlCode.VOLUME_DECREMENT)
-        LEDCirclePosition = 1
+        for LEDLoop in range(6):
+            pixels[LEDCircle[LEDLoop]] = (0, 0, 0) #Clear Key LEDs
+        if LEDCirclePosition == 0:
+            LEDCirclePosition = 5
+        elif LEDCirclePosition > 0:
+            LEDCirclePosition = LEDCirclePosition - 1
         
     if delta < 0:
-        print("endoder decreased - volume increase")
-        function2()
+        #print("endoder up - volume increase")
         cc.send(ConsumerControlCode.VOLUME_INCREMENT)
-        LEDCirclePosition = 2
-        
+        for LEDLoop in range(6):
+            pixels[LEDCircle[LEDLoop]] = (0, 0, 0) #Clear Key LEDs
+        if LEDCirclePosition == 5:
+            LEDCirclePosition = 0
+        elif LEDCirclePosition < 5:
+            LEDCirclePosition = LEDCirclePosition + 1
+    
     pixels[LEDCircle[LEDCirclePosition]] = (55, 0, 0)
+    #print('LEDCirclePosition', LEDCirclePosition)
+    #time.sleep(.2)
