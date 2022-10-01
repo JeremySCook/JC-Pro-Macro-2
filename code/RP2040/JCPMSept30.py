@@ -187,13 +187,15 @@ def keys():
             randomMode = 0
         print("switch 10 pressed, randomMode = ", randomMode)
         time.sleep(0.2)
-        
-while True:
+
+def encoder1():
+    global last_position
+    global LEDCircle
+    global LEDCirclePosition
     
-    keys()
-        
     position = encoder.position
     delta = 0
+    
     if last_position is None or position != last_position:
         #print('encoder postion', position)
     
@@ -219,7 +221,15 @@ while True:
             LEDCirclePosition = 0
         elif LEDCirclePosition < 5:
             LEDCirclePosition = LEDCirclePosition + 1
-    
+            
     pixels[LEDCircle[LEDCirclePosition]] = (55, 0, 0)
-    #print('LEDCirclePosition', LEDCirclePosition)
-    #time.sleep(.2)
+
+#print('LEDCirclePosition', LEDCirclePosition)
+#time.sleep(.2)
+
+        
+while True:
+    
+    keys()
+    encoder1()
+    
