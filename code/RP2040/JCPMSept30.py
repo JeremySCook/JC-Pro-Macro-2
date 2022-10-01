@@ -8,11 +8,13 @@ import board
 import usb_hid
 import subcode
 
+from adafruit_hid.mouse import Mouse
 from adafruit_hid.keyboard import Keyboard
 from adafruit_hid.keycode import Keycode
 from adafruit_hid.keyboard_layout_us import KeyboardLayoutUS
 from adafruit_hid.consumer_control import ConsumerControl
 from adafruit_hid.consumer_control_code import ConsumerControlCode
+import random
 
 #LED setup########################
 
@@ -42,7 +44,7 @@ display_bus = displayio.I2CDisplay(i2c, device_address=0x3C)
 
 WIDTH = 128
 HEIGHT = 64  # Change to 64 if needed
-BORDER = 5
+BORDER = 5 # is this needed??
 
 display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=WIDTH, height=HEIGHT, rotation=180)
 
@@ -89,6 +91,9 @@ SW10_PIN = board.D8 #Mode pin
 
 keyboard = Keyboard(usb_hid.devices)
 cc = ConsumerControl(usb_hid.devices)
+mouse = Mouse(usb_hid.devices)
+
+randomMode = 0
 
 SW2 = digitalio.DigitalInOut(SW2_PIN)
 SW2.direction = digitalio.Direction.INPUT
@@ -175,12 +180,14 @@ def keys():
         keyboard.release(Keycode.H)
  
     if not SW10.value:
-        print("switch 10 pressed")
-        keyboard.press(Keycode.I)
+        global randomMode
+        if randomMode == 0:
+            randomMode = 1
+        elif randomMode == 1:
+            randomMode = 0
+        print("switch 10 pressed, randomMode = ", randomMode)
         time.sleep(0.2)
-        keyboard.release(Keycode.I)
         
-
 while True:
     
     keys()
