@@ -253,16 +253,13 @@ void volume(){
         decrement = 0;
         //delay(10);
       }
-  if (SW6 == 0){ //tab to next browser tab Firefox or Chrome
-        Keyboard.press(KEY_LEFT_CTRL);
-        Keyboard.press(KEY_TAB);          
+  if (SW6 == 0){ //forward ten seconds on YouTube
+        Keyboard.press(KEY_L);          
         Keyboard.releaseAll();
         delay(50);
       }
-  if (SW5 == 0){ //tab to previous browser tab Firefox or Chrome
-        Keyboard.press(KEY_LEFT_SHIFT);
-        Keyboard.press(KEY_LEFT_CTRL);
-        Keyboard.press(KEY_TAB);
+  if (SW5 == 0){ //rewind ten seconds on YouTube
+        Keyboard.press(KEY_J);
         Keyboard.releaseAll();
         delay(50);
       }
@@ -278,19 +275,19 @@ void volume(){
         Consumer.write(MEDIA_PREVIOUS);
         delay(50);
       }
-  if (SW7 == 0) {   
+  if (SW7 == 0) {   //increase speed YouTube
         Keyboard.press(KEY_LEFT_SHIFT);
         Keyboard.press(KEY_PERIOD);
         Keyboard.releaseAll();
         delay(50);
   } 
-  if (SW8 == 0) {   
-        Keyboard.press(KEY_LEFT_SHIFT);
+  if (SW8 == 0) {   //decrease speed YouTube
+        Keyboard.press(KEY_LEFT_SHIFT); 
         Keyboard.press(KEY_COMMA);
         Keyboard.releaseAll();
         delay(50);
   }
-  if (SW9 == 0) {   
+  if (SW9 == 0) {  //previous frame (when paused)
         Keyboard.press(KEY_COMMA);
         Keyboard.releaseAll();
         delay(50);
