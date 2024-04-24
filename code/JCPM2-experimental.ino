@@ -253,7 +253,7 @@ void volume(){
         decrement = 0;
         //delay(10);
       }
-  if (SW6 == 0){ //forward ten seconds on YouTube
+  if (SW8 == 0){ //forward ten seconds on YouTube
         Keyboard.press(KEY_L);          
         Keyboard.releaseAll();
         delay(50);
@@ -281,7 +281,7 @@ void volume(){
         Keyboard.releaseAll();
         delay(50);
   } 
-  if (SW8 == 0) {   //decrease speed YouTube
+  if (SW6 == 0) {   //decrease speed YouTube
         Keyboard.press(KEY_LEFT_SHIFT); 
         Keyboard.press(KEY_COMMA);
         Keyboard.releaseAll();
