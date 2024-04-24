@@ -278,38 +278,23 @@ void volume(){
         Consumer.write(MEDIA_PREVIOUS);
         delay(50);
       }
-  if (pedalLeft == 0) {
-        Keyboard.press(KEY_LEFT_SHIFT); //does not seem to work for actual letters, just mouse
-        //delay(200);
-        pedalLeft = digitalRead(9);
-        //delay(200);
-  }
-
-  if (pedalLeft == 1) {
+  if (SW7 == 0) {   
+        Keyboard.press(KEY_LEFT_SHIFT);
+        Keyboard.press(KEY_PERIOD);
         Keyboard.releaseAll();
-}
-
-  
-  if ((SW7 == 0) && (underLight == 0)) {        
-    underLight = 1;
-    for(int i=8; i<12; i++){
-    pixels.setPixelColor(i, pixels.Color(255, 0, 0));
-    }
-    pixels.show(); // Show results
-    delay(100);
+        delay(50);
+  } 
+  if (SW8 == 0) {   
+        Keyboard.press(KEY_LEFT_SHIFT);
+        Keyboard.press(KEY_COMMA);
+        Keyboard.releaseAll();
+        delay(50);
   }
-  else if ((SW7 == 0) && (underLight == 1)) {        
-    underLight = 0;
-    for(int i=8; i<12; i++){
-    pixels.setPixelColor(i, pixels.Color(0, 0, 0));
-    }
-    pixels.show(); // Show results
-    delay(100);
-  }  
-  if ((SW8 == 0)||(SW9 == 0)){
-    fan();
+  if (SW9 == 0) {   
+        Keyboard.press(KEY_COMMA);
+        Keyboard.releaseAll();
+        delay(50);
   }
-
 screenVolume();
 }
 
