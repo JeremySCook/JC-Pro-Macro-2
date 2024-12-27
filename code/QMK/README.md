@@ -1,3 +1,7 @@
+[![Tech Adjacent](https://img.shields.io/badge/Tech%20Adjacent%20With%20Jeremy%20Cook-[Substack]-blue?style=flat-square&logo=substack)](https://techadjacent.substack.com/)
+
+![image](kb-labeled.png)
+
 Experimental [QMK firmware]([url](https://qmk.fm/))
 
 Very much a work in progress. As of now, only the main KB switches work, outputting their switch numbers when pressed.
