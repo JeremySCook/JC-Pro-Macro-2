@@ -1,8 +1,11 @@
 [![Tech Adjacent](https://img.shields.io/badge/Tech%20Adjacent%20With%20Jeremy%20Cook-[Substack]-blue?style=flat-square&logo=substack)](https://techadjacent.substack.com/)
 
+Experimental [QMK firmware]([url](https://qmk.fm/))
+
 ![image](kb-labeled.png)
 
-Experimental [QMK firmware]([url](https://qmk.fm/))
+Above image: Keycaps labeled with ATmega32U4 pin numbers where each is connected (e.g. B1). These pin numbers are
+needed for QMK definition.
 
 Very much a work in progress. As of now, only the main KB switches work, outputting their switch numbers when pressed.
 
