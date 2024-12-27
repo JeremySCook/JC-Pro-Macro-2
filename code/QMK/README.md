@@ -20,7 +20,7 @@ QMK uses the actual AVR labels
 
 row/column – JCPM really only has one column (or row depending on how you define it)
 
-*helpful video
+*above is a helpful video
 
 
 https://www.youtube.com/watch?v=P_oSLBZABGA
