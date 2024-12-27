@@ -5,9 +5,11 @@ Experimental [QMK firmware]([url](https://qmk.fm/))
 ![image](kb-labeled.png)
 
 Above image: Keycaps labeled with ATmega32U4 pin numbers where each is connected (e.g. B1). These pin numbers are
-needed for QMK definition.
+needed for QMK definition. Below is a schematic which should be largely correct for the JCPM2s out there today.
 
-Very much a work in progress. As of now, only the main KB switches work, outputting their switch numbers when pressed.
+![image](schematic.png)
+
+This is very much a work in progress. As of now, only the main KB switches work, outputting their switch numbers when pressed.
 
 Below are my notes on getting this to work so far. I may continue on this path, but if you feel like experimenting, please be my guest!
 
