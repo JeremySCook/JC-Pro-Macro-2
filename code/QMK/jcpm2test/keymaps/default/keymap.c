@@ -1,8 +1,4 @@
-#ifdef OLED_ENABLE
 
-
-
-#endif
 
 #include QMK_KEYBOARD_H
 
@@ -22,3 +18,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_P2, KC_P3, KC_P4, KC_P9
     )
 };
+
+#ifdef OLED_ENABLE
+#endif
+
+#ifdef ENCODER_MAP_ENABLE
+    ENCODER_CCW_CW(KC_VOLD, KC_VOLU);
+#endif
