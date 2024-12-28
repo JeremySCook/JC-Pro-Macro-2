@@ -13,7 +13,7 @@ needed for QMK definition. Below is a schematic which should be largely correct 
 
 ![image](schematic.png)
 
-Below are my notes on getting this to work so far. I may continue on this path, but if you feel like experimenting, please be my guest!
+Below are some notes on getting this to work. I may continue on this path, but if you feel like experimenting, please be my guest!
 
 -----------------------------------------------------------
 
