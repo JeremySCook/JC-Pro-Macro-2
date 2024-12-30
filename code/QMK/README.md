@@ -2,9 +2,9 @@
 
 Experimental [QMK firmware]([url](https://qmk.fm/))
 
-As of now, KB switches work, along with endocer and option button. Encoder working set up for volume adjustment.
+As of now, all switches and encoder work with three layers set up!
 
-Still need to work on: OLED, addressable LEDs, etc.
+Still need to work on: OLED, and addressable LEDs, but basic functionality is implemented.
 
 ![image](kb-labeled.png)
 
