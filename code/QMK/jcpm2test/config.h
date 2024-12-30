@@ -1,4 +1,6 @@
 #define OLED_DISPLAY_128x64
 #define OLED_DISPLAY_ADDRESS 0x3C
+#define NUM_ENCODERS 1
+#define NUM_DIRECTIONS 2
 #define ENCODER_A_PINS { D2 }
 #define ENCODER_B_PINS { D3 }

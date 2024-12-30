@@ -5,7 +5,6 @@ enum custom_layers {
     _LAYER0,
     _LAYER1,
     _LAYER2,
-    _LAYER3
 };
 
 // Layer state variable
@@ -30,34 +29,37 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
      * ┌───┬───┬───┬───┐
-     * │ 0 │ n │ 6 │ 7 │
+     * │ E │ n │ 6 │ 7 │
      * ├───┼───┼───┼───┤
-     * │ 1 │ n │ 5 │ 8 │
+     * │ B │ n │ 5 │ 8 │
      * ├───┼───┼───┼───┤
      * │ 2 │ 3 │ 4 │ 9 │
      * └───┴───┴───┴───┘
      */
     [_LAYER0] = LAYOUT(
-        KC_P0, KC_OUT, KC_P0, KC_P7,
-        LAYER_TOGGLE, KC_OUT, KC_P5, KC_P8,
-        KC_P2, KC_P3, KC_P4, KC_P9
+        KC_MUTE,        KC_X,     LSFT(KC_COMM),    LSFT(KC_DOT),
+        LAYER_TOGGLE,   KC_X,     KC_J,             KC_L,
+        KC_MPRV,        KC_MPLY,  KC_MNXT,          KC_P9 //NOT SURE WHAT TO DO WITH LOWER RT KEY LIGHTS??
     ),
     [_LAYER1] = LAYOUT(
-        KC_P1, KC_OUT, KC_P1, KC_P7,
-        LAYER_TOGGLE, KC_OUT, KC_P5, KC_P8,
-        KC_P2, KC_P3, KC_P4, KC_P9
+        KC_P1,          KC_X,     KC_P1,      KC_P7,
+        LAYER_TOGGLE,   KC_X,     KC_P5,      KC_P8,
+        KC_P2,          KC_P3,    KC_P4,      KC_P9
     ),
     [_LAYER2] = LAYOUT(
-        KC_P2, KC_OUT, KC_P2, KC_P7,
-        LAYER_TOGGLE, KC_OUT, KC_P5, KC_P8,
-        KC_P2, KC_P3, KC_P4, KC_P9
+        KC_P2,          KC_X,     KC_P2,      KC_P7,
+        LAYER_TOGGLE,   KC_X,     KC_P5,      KC_P8,
+        KC_P2,          KC_P3,    KC_P4,      KC_P9
     ),
-    [_LAYER3] = LAYOUT(
-        KC_P3, KC_OUT, KC_P3, KC_P7,
-        LAYER_TOGGLE, KC_OUT, KC_P5, KC_P8,
-        KC_P2, KC_P3, KC_P4, KC_P9
-    )
 };
+
+#ifdef ENCODER_MAP_ENABLE //defined in rules.mk
+const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
+    [_LAYER0] = { ENCODER_CCW_CW(KC_KB_VOLUME_DOWN, KC_KB_VOLUME_UP) },
+    [_LAYER1] = { ENCODER_CCW_CW(KC_C, KC_D) },
+    [_LAYER2] = { ENCODER_CCW_CW(KC_E, KC_F) },
+};
+#endif
 
 // Process custom keycodes
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -86,8 +88,4 @@ void led_set_user(uint8_t usb_led) {
 
 
 #ifdef OLED_ENABLE
-#endif
-
-#ifdef ENCODER_MAP_ENABLE
-    ENCODER_CCW_CW(KC_VOLD, KC_VOLU);
 #endif
