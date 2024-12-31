@@ -2,9 +2,9 @@
 
 Experimental [QMK firmware]([url](https://qmk.fm/))
 
-As of now, all switches and encoder work with three layers set up!
+As of now, all switches and encoder work with three layers set up. Underlighting active.
 
-Still need to work on: OLED, and addressable LEDs, but basic functionality is implemented.
+Still need to work on: OLED
 
 ![image](kb-labeled.png)
 
