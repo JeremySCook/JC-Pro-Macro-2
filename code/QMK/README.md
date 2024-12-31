@@ -4,7 +4,7 @@ Experimental [QMK firmware]([url](https://qmk.fm/))
 
 As of now, all switches and encoder work with three layers set up. Underlighting active.
 
-Still need to work on: OLED
+OLED active, but need to rotate 180 and modify info
 
 ![image](kb-labeled.png)
 
