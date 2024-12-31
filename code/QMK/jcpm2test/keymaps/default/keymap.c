@@ -89,8 +89,7 @@ void led_set_user(uint8_t usb_led) {
 #ifdef OLED_ENABLE
 // Function to display the current layer and information on the OLED
 bool oled_task_user(void) {
-    // Clear the display
-    oled_clear();
+    // Need to Rotate OLED 180 degrees, haven't yet figured this out
 
     // Display a title or heading
     oled_write_ln_P(PSTR("Keyboard Info:"), false);
