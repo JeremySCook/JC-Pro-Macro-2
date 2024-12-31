@@ -86,14 +86,18 @@ void led_set_user(uint8_t usb_led) {
     // Add custom LED handling code here if needed
 }
 
-#ifdef OLED_ENABLE //currently displays symbols, but does at least initialize OLED
-// Function to display the current layer on the OLED
+#ifdef OLED_ENABLE
+// Function to display the current layer and information on the OLED
 bool oled_task_user(void) {
-    oled_clear(); // Clear the display
-    
-    oled_write_ln_P(PSTR("Layer:"), false);
+    // Clear the display
+    oled_clear();
 
-    switch (current_layer) {
+    // Display a title or heading
+    oled_write_ln_P(PSTR("Keyboard Info:"), false);
+
+    // Display the current layer
+    oled_write_ln_P(PSTR("Layer:"), false);
+    switch (get_highest_layer(layer_state)) {
         case _LAYER0:
             oled_write_ln_P(PSTR("Default"), false);
             break;
@@ -103,11 +107,14 @@ bool oled_task_user(void) {
         case _LAYER2:
             oled_write_ln_P(PSTR("Layer 2"), false);
             break;
+        default:
+            oled_write_ln_P(PSTR("Unknown"), false);
+            break;
     }
 
-    oled_write_ln_P(PSTR("Enc Vol +/-"), false); // Example additional info
-    
-    return false; // Return false to indicate no further OLED updates
-}
+    // Optionally display other custom text
+    oled_write_ln_P(PSTR("Enc Vol +/-"), false);
 
+    return false; // Indicate that no further OLED updates are required
+}
 #endif
