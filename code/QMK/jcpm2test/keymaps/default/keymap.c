@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_LAYER0] = LAYOUT(
         KC_MUTE,        KC_X,     LSFT(KC_COMM),    LSFT(KC_DOT),
         LAYER_TOGGLE,   KC_X,     KC_J,             KC_L,
-        KC_MPRV,        KC_MPLY,  KC_MNXT,          KC_P9 //NOT SURE WHAT TO DO WITH LOWER RT KEY LIGHTS??
+        KC_MPRV,        KC_MPLY,  KC_MNXT,          UG_TOGG
     ),
     [_LAYER1] = LAYOUT(
         KC_P1,          KC_X,     KC_P1,      KC_P7,
@@ -86,6 +86,28 @@ void led_set_user(uint8_t usb_led) {
     // Add custom LED handling code here if needed
 }
 
+#ifdef OLED_ENABLE //currently displays symbols, but does at least initialize OLED
+// Function to display the current layer on the OLED
+bool oled_task_user(void) {
+    oled_clear(); // Clear the display
+    
+    oled_write_ln_P(PSTR("Layer:"), false);
 
-#ifdef OLED_ENABLE
+    switch (current_layer) {
+        case _LAYER0:
+            oled_write_ln_P(PSTR("Default"), false);
+            break;
+        case _LAYER1:
+            oled_write_ln_P(PSTR("Layer 1"), false);
+            break;
+        case _LAYER2:
+            oled_write_ln_P(PSTR("Layer 2"), false);
+            break;
+    }
+
+    oled_write_ln_P(PSTR("Enc Vol +/-"), false); // Example additional info
+    
+    return false; // Return false to indicate no further OLED updates
+}
+
 #endif

@@ -4,3 +4,8 @@
 #define NUM_DIRECTIONS 2
 #define ENCODER_A_PINS { D2 }
 #define ENCODER_B_PINS { D3 }
+
+#define WS2812_DI_PIN C6
+#define RGBLIGHT_LED_COUNT 12
+#define RGBLIGHT_SLEEP
+#define RGBLIGHT_LIMIT_VAL 60
