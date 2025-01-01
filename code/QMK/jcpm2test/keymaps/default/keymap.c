@@ -88,9 +88,13 @@ void led_set_user(uint8_t usb_led) {
 
 #ifdef OLED_ENABLE
 // Function to display the current layer and information on the OLED
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+        return OLED_ROTATION_180; // flips the display 180 degrees if offhand
+    }
+
 bool oled_task_user(void) {
     // Need to Rotate OLED 180 degrees, haven't yet figured this out
-
+    
     // Display a title or heading
     oled_write_ln_P(PSTR("Keyboard Info:"), false);
 
