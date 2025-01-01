@@ -1,3 +1,5 @@
+[![Tech Adjacent](https://img.shields.io/badge/Tech%20Adjacent%20With%20Jeremy%20Cook-[Substack]-blue?style=flat-square&logo=substack)](https://techadjacent.substack.com/)
+
 To install QMK firmware, first set up your build environment via instructions found here: https://docs.qmk.fm/newbs_getting_started
 
 Copy the jcpm2test folder into the keyboard directory and run: qmk compile -kb jcpm2test -km default
