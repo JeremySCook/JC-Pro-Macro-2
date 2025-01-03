@@ -66,7 +66,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
         switch (keycode) {
             case LAYER_TOGGLE:
-                current_layer = (current_layer + 1) % 4;
+                current_layer = (current_layer + 1) % 3;
                 layer_move(current_layer);
                 return false; // Skip default processing
         }
@@ -93,30 +93,38 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     }
 
 bool oled_task_user(void) {
-    // Need to Rotate OLED 180 degrees, haven't yet figured this out
-    
-    // Display a title or heading
-    oled_write_ln_P(PSTR("Keyboard Info:"), false);
-
-    // Display the current layer
-    oled_write_ln_P(PSTR("Layer:"), false);
     switch (get_highest_layer(layer_state)) {
         case _LAYER0:
-            oled_write_ln_P(PSTR("Default"), false);
+            oled_write_ln_P(PSTR("ENCODER   VOL+ VOL-"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("          SLOW FAST"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("LAYR RSET 10BK 10FW"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("MREV MPLA MFWD LITE"), false);
             break;
         case _LAYER1:
-            oled_write_ln_P(PSTR("Layer 1"), false);
+            oled_write_ln_P(PSTR("LAYER 1"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("Line 5"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("Line 5"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("Line 7"), false);
             break;
         case _LAYER2:
-            oled_write_ln_P(PSTR("Layer 2"), false);
-            break;
-        default:
-            oled_write_ln_P(PSTR("Unknown"), false);
+            oled_write_ln_P(PSTR("LAYER 2"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("Line 5"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("Line 5"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("Line 7"), false);
             break;
     }
 
     // Optionally display other custom text
-    oled_write_ln_P(PSTR("Enc Vol +/-"), false);
+    //oled_write_ln_P(PSTR("Enc Vol +/-"), false);
 
     return false; // Indicate that no further OLED updates are required
 }

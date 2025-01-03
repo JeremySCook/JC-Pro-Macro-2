@@ -6,7 +6,7 @@
 // OLED Configuration
 #define OLED_DISPLAY_128X64
 #define OLED_DISPLAY_ADDRESS 0x3C //correct per Arduino code
-#define OLED_TIMEOUT 300000
+#define OLED_TIMEOUT 600000
 
 // OLED Configuration
 //#define NUM_ENCODERS 1
