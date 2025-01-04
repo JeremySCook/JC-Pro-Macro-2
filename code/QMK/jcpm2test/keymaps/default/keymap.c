@@ -1,3 +1,4 @@
+
 #include QMK_KEYBOARD_H
 
 // Define the layers
@@ -36,28 +37,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * │ 2 │ 3 │ 4 │ 9 │
      * └───┴───┴───┴───┘
      */
-    [_LAYER0] = LAYOUT(
+    [_LAYER0] = LAYOUT( // default
         KC_MUTE,        KC_X,     LSFT(KC_COMM),    LSFT(KC_DOT),
         LAYER_TOGGLE,   KC_X,     KC_J,             KC_L,
         KC_MPRV,        KC_MPLY,  KC_MNXT,          UG_TOGG
     ),
-    [_LAYER1] = LAYOUT(
-        KC_P1,          KC_X,     KC_P1,      KC_P7,
-        LAYER_TOGGLE,   KC_X,     KC_P5,      KC_P8,
+    [_LAYER1] = LAYOUT( // FCPX
+        KC_P1,          KC_X,     KC_P1,      LGUI(KC_PLUS),
+        LAYER_TOGGLE,   KC_X,     KC_P5,      LGUI(KC_MINS),
         KC_P2,          KC_P3,    KC_P4,      KC_P9
     ),
-    [_LAYER2] = LAYOUT(
-        KC_P2,          KC_X,     KC_P2,      KC_P7,
-        LAYER_TOGGLE,   KC_X,     KC_P5,      KC_P8,
-        KC_P2,          KC_P3,    KC_P4,      KC_P9
+    [_LAYER2] = LAYOUT( // KICAD
+        KC_E,           KC_X,     KC_ESC,     KC_M,
+        LAYER_TOGGLE,   KC_X,     C(KC_Z),    KC_D, //NOT SURE WHAT TRAK IS (RIGHT KEY)
+        KC_A,           KC_D,     KC_P4,      KC_BSPC //NOT SURE ABOUT DRAG 2ND FROM LEFT
     ),
 };
 
 #ifdef ENCODER_MAP_ENABLE //defined in rules.mk
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
-    [_LAYER0] = { ENCODER_CCW_CW(KC_KB_VOLUME_DOWN, KC_KB_VOLUME_UP) },
-    [_LAYER1] = { ENCODER_CCW_CW(KC_C, KC_D) },
-    [_LAYER2] = { ENCODER_CCW_CW(KC_E, KC_F) },
+    [_LAYER0] = { ENCODER_CCW_CW(KC_KB_VOLUME_DOWN, KC_KB_VOLUME_UP) }, // default
+    [_LAYER1] = { ENCODER_CCW_CW(KC_LEFT, KC_RIGHT) }, // FCPX
+    [_LAYER2] = { ENCODER_CCW_CW(KC_R, S(KC_R)) }, // KICAD
 };
 #endif
 
@@ -95,31 +96,31 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 bool oled_task_user(void) {
     switch (get_highest_layer(layer_state)) {
         case _LAYER0:
-            oled_write_ln_P(PSTR("ENCODER   VOL+ VOL-"), false);
+            oled_write_ln_P(PSTR("(VOL- VOL+)  LAYER0"), false);
             oled_write_ln_P(PSTR(""), false);
-            oled_write_ln_P(PSTR("          SLOW FAST"), false);
+            oled_write_ln_P(PSTR("MUTE      SLOW FAST"), false);
             oled_write_ln_P(PSTR(""), false);
             oled_write_ln_P(PSTR("LAYR RSET 10BK 10FW"), false);
             oled_write_ln_P(PSTR(""), false);
             oled_write_ln_P(PSTR("MREV MPLA MFWD LITE"), false);
             break;
         case _LAYER1:
-            oled_write_ln_P(PSTR("LAYER 1"), false);
+            oled_write_ln_P(PSTR("(FRA- FRA+)  FCPX"), false);
             oled_write_ln_P(PSTR(""), false);
-            oled_write_ln_P(PSTR("Line 5"), false);
+            oled_write_ln_P(PSTR("XXXX      BRAK ZOM+"), false);
             oled_write_ln_P(PSTR(""), false);
-            oled_write_ln_P(PSTR("Line 5"), false);
+            oled_write_ln_P(PSTR("LAYR RSET UNDO ZOM-"), false);
             oled_write_ln_P(PSTR(""), false);
-            oled_write_ln_P(PSTR("Line 7"), false);
+            oled_write_ln_P(PSTR("BACK STOP FORW DELT"), false);
             break;
         case _LAYER2:
-            oled_write_ln_P(PSTR("LAYER 2"), false);
+            oled_write_ln_P(PSTR("(RO L RO R)  KICAD"), false);
             oled_write_ln_P(PSTR(""), false);
-            oled_write_ln_P(PSTR("Line 5"), false);
+            oled_write_ln_P(PSTR("XXXX      ESCP MOVE"), false);
             oled_write_ln_P(PSTR(""), false);
-            oled_write_ln_P(PSTR("Line 5"), false);
+            oled_write_ln_P(PSTR("LAYR RSET UNDO TRAK"), false);
             oled_write_ln_P(PSTR(""), false);
-            oled_write_ln_P(PSTR("Line 7"), false);
+            oled_write_ln_P(PSTR("ZONE DRAG SALL DELT"), false);
             break;
     }
 

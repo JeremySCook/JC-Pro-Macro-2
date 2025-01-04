@@ -8,9 +8,10 @@
 #define OLED_DISPLAY_ADDRESS 0x3C //correct per Arduino code
 #define OLED_TIMEOUT 600000
 
-// OLED Configuration
+// Encoder Configuration
 //#define NUM_ENCODERS 1
 //#define NUM_DIRECTIONS 2
+#define ENCODER_RESOLUTION 4
 #define ENCODER_A_PINS { D2 }
 #define ENCODER_B_PINS { D3 }
 
@@ -19,3 +20,4 @@
 #define RGBLIGHT_LED_COUNT 12
 #define RGBLIGHT_SLEEP
 #define RGBLIGHT_LIMIT_VAL 60
+#define RGBLIGHT_LAYERS
