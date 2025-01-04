@@ -1,6 +1,6 @@
 [![Tech Adjacent](https://img.shields.io/badge/Tech%20Adjacent%20With%20Jeremy%20Cook-[Substack]-blue?style=flat-square&logo=substack)](https://techadjacent.substack.com/)
 
-Experimental [QMK firmware]([url](https://qmk.fm/))
+Experimental QMK firmware - Hex file is somewhat stable, while definition in jcpm2test may be further along.
 
 As of now, all switches and encoder work with three layers set up. Underlighting active. OLED active.
 
