@@ -49,8 +49,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_LAYER2] = LAYOUT( // KICAD
         KC_E,           KC_X,     KC_ESC,     KC_M,
-        LAYER_TOGGLE,   KC_X,     C(KC_Z),    KC_D, //NOT SURE WHAT TRAK IS (RIGHT KEY)
-        KC_A,           KC_D,     KC_P4,      KC_BSPC //NOT SURE ABOUT DRAG 2ND FROM LEFT
+        LAYER_TOGGLE,   KC_X,     LGUI(KC_Z), KC_X,
+        KC_V,           KC_D,     KC_U,       KC_BSPC //NOT SURE ABOUT DRAG 2ND FROM LEFT
     ),
 };
 
@@ -116,11 +116,11 @@ bool oled_task_user(void) {
         case _LAYER2:
             oled_write_ln_P(PSTR("(RO L RO R)   KICAD"), false);
             oled_write_ln_P(PSTR(""), false);
-            oled_write_ln_P(PSTR("XXXX      ESCP MOVE"), false);
+            oled_write_ln_P(PSTR("EDIT      ESCP MOVE"), false);
             oled_write_ln_P(PSTR(""), false);
             oled_write_ln_P(PSTR("LAYR RSET UNDO TRAK"), false);
             oled_write_ln_P(PSTR(""), false);
-            oled_write_ln_P(PSTR("ZONE DRAG SALL DELT"), false);
+            oled_write_ln_P(PSTR("VIA  DRAG SALL DELT"), false);
             break;
     }
 
