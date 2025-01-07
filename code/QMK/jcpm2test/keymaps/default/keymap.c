@@ -43,9 +43,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_MPRV,        KC_MPLY,  KC_MNXT,          UG_TOGG
     ),
     [_LAYER1] = LAYOUT( // FCPX
-        KC_P1,          KC_X,     KC_P1,      LGUI(KC_PLUS),
-        LAYER_TOGGLE,   KC_X,     KC_P5,      LGUI(KC_MINS),
-        KC_P2,          KC_P3,    KC_P4,      KC_P9
+        LSFT(LGUI(KC_B)),   KC_X,     LGUI(KC_B), LGUI(KC_EQL),
+        LAYER_TOGGLE,       KC_X,     LALT(KC_K), LGUI(KC_MINS),
+        KC_J,               KC_K,     KC_L,       KC_BSPC
     ),
     [_LAYER2] = LAYOUT( // KICAD
         KC_E,           KC_X,     KC_ESC,     KC_M,
@@ -105,16 +105,16 @@ bool oled_task_user(void) {
             oled_write_ln_P(PSTR("MREV MPLA MFWD LITE"), false);
             break;
         case _LAYER1:
-            oled_write_ln_P(PSTR("(FRA- FRA+)  FCPX"), false);
+            oled_write_ln_P(PSTR("(FRA- FRA+)    FCPX"), false);
             oled_write_ln_P(PSTR(""), false);
             oled_write_ln_P(PSTR("XXXX      BRAK ZOM+"), false);
             oled_write_ln_P(PSTR(""), false);
-            oled_write_ln_P(PSTR("LAYR RSET UNDO ZOM-"), false);
+            oled_write_ln_P(PSTR("LAYR RSET KFRA ZOM-"), false);
             oled_write_ln_P(PSTR(""), false);
             oled_write_ln_P(PSTR("BACK STOP FORW DELT"), false);
             break;
         case _LAYER2:
-            oled_write_ln_P(PSTR("(RO L RO R)  KICAD"), false);
+            oled_write_ln_P(PSTR("(RO L RO R)   KICAD"), false);
             oled_write_ln_P(PSTR(""), false);
             oled_write_ln_P(PSTR("XXXX      ESCP MOVE"), false);
             oled_write_ln_P(PSTR(""), false);
