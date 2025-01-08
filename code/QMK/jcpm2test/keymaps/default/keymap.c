@@ -56,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 #ifdef ENCODER_MAP_ENABLE //defined in rules.mk
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
-    [_LAYER0] = { ENCODER_CCW_CW(KC_KB_VOLUME_DOWN, KC_KB_VOLUME_UP) }, // default
+    [_LAYER0] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) }, // default
     [_LAYER1] = { ENCODER_CCW_CW(KC_LEFT, KC_RIGHT) }, // FCPX
     [_LAYER2] = { ENCODER_CCW_CW(KC_R, S(KC_R)) }, // KICAD
 };
@@ -129,8 +129,4 @@ bool oled_task_user(void) {
 
     return false; // Indicate that no further OLED updates are required
 }
-#endif
-
-#ifdef RGBLIGHT_ENABLE
-
 #endif

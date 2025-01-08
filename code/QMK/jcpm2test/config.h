@@ -1,3 +1,5 @@
+#pragma once
+
 // I2C Configuration
 #define I2C_DRIVER I2CD1
 #define I2C1_SCL_PIN D0
@@ -6,7 +8,7 @@
 // OLED Configuration
 #define OLED_DISPLAY_128X64
 #define OLED_DISPLAY_ADDRESS 0x3C //correct per Arduino code
-#define OLED_TIMEOUT 600000
+#define OLED_TIMEOUT 2000000
 
 // Encoder Configuration
 //#define NUM_ENCODERS 1
