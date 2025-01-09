@@ -1,6 +1,9 @@
 [![Tech Adjacent](https://img.shields.io/badge/Tech%20Adjacent%20With%20Jeremy%20Cook-[Substack]-blue?style=flat-square&logo=substack)](https://techadjacent.substack.com/)
 
-Experimental QMK firmware - Hex file is somewhat stable, while definition in jcpm2test may be further along.
+New experimental macro pad firmware [based on QMK]([url](https://qmk.fm/)) - Using this firmware should make it
+much easier to modify the keymap and customiza things to your liking. See [setup]([url](https://github.com/JeremySCook/JC-Pro-Macro-2/tree/main/code/QMK/setup)) for more info on getting this firmware working.
+
+The included hex file is stable, while definition in jcpm2test may be further along.
 
 As of now, all switches and encoder work with three layers set up. Underlighting active. OLED active.
 
