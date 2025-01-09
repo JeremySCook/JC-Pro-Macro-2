@@ -134,30 +134,28 @@ led_config_t g_led_config = { {
   // Key Matrix to LED Index
   {   NO_LED, NO_LED, 0,  1 },
   {   NO_LED, NO_LED, 2,  3 },
-  {   NO_LED, NO_LED, 4,  5 }
+  {   4,      5,      6,  7 }
 }, {
   // LED Index to Physical Position
-  { 188,  16 }, { 187,  48 }, { 149,  64 }, { 112,  64 }, {  37,  48 }, {  38,  16 }
+  { 0,  0  }, { 75,  0  }, { 150,  0  }, { 224, 0  },
+  { 0,  32 }, { 75,  32 }, { 150,  32 }, { 224, 32 },
+  { 0,  64 }, { 75,  64 }, { 150,  64 }, { 224, 64 }
 }, {
   // LED Index to Flag
-  1, 4, 4, 4, 4, 1
+  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 } };
 
-bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
-    for (uint8_t i = led_min; i < led_max; i++) {
+bool rgb_matrix_indicators_kb(void) {
         switch(get_highest_layer(layer_state|default_layer_state)) {
             case _LAYER2:
-                rgb_matrix_set_color(i, 0, 0, 5);
+                rgb_matrix_set_color_all(0, 0, 5);
                 break;
             case _LAYER1:
-                rgb_matrix_set_color(i, 0, 5, 0);
+                rgb_matrix_set_color_all(0, 5, 0);
                 break;
             case _LAYER0:
-                rgb_matrix_set_color(i, 5, 0, 0);
+                rgb_matrix_set_color_all(5, 0, 0);
                 break;           
-            default:
-                break;
         }
-    }
     return false;
 }
