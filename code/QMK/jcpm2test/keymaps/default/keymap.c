@@ -3,6 +3,7 @@
 // Define the layers
 enum custom_layers {
     _LAYER0,
+    _LAYER0_MOD,
     _LAYER1,
     _LAYER2,
 };
@@ -39,7 +40,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_LAYER0] = LAYOUT( // default
         KC_MUTE,       KC_X,     LSFT(KC_COMM),    LSFT(KC_DOT),
         DF(_LAYER1),   KC_X,     KC_J,             KC_L,
-        KC_MPRV,       KC_MPLY,  KC_MNXT,          C(LGUI(KC_SPC))
+        KC_MPRV,       KC_MPLY,  KC_MNXT,          OSL(_LAYER0_MOD) // btm-right one shot mod layer
+    ),
+    [_LAYER0_MOD] = LAYOUT( // default MOD
+        _______,            KC_X,     _______,    _______, // _______ transparent, goes to above layer
+        _______,            KC_X,     _______,    _______,
+        C(LGUI(KC_SPC)),    _______,  _______,    UG_TOGG
     ),
     [_LAYER1] = LAYOUT( // FCPX
         LSFT(LGUI(KC_B)),  KC_X,     LGUI(KC_B), LGUI(KC_EQL),
@@ -49,13 +55,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_LAYER2] = LAYOUT( // KICAD
         KC_E,           KC_X,     KC_ESC,     KC_M,
         DF(_LAYER0),    KC_X,     LGUI(KC_Z), KC_X,
-        KC_V,           KC_D,     KC_U,       KC_BSPC //NOT SURE ABOUT DRAG 2ND FROM LEFT
-    ),
+        KC_V,           KC_D,     KC_U,       KC_BSPC    ),
 };
 
 #ifdef ENCODER_MAP_ENABLE //defined in rules.mk
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [_LAYER0] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) }, // default
+    [_LAYER0_MOD] = { ENCODER_CCW_CW(_______, _______) }, // default MOD
     [_LAYER1] = { ENCODER_CCW_CW(KC_LEFT, KC_RIGHT) }, // FCPX
     [_LAYER2] = { ENCODER_CCW_CW(KC_R, S(KC_R)) }, // KICAD
 };
@@ -102,6 +108,15 @@ bool oled_task_user(void) {
             oled_write_ln_P(PSTR("LAYR RSET 10BK 10FW"), false);
             oled_write_ln_P(PSTR(""), false);
             oled_write_ln_P(PSTR("MREV MPLA MFWD EMOJ"), false);
+            break;
+        case _LAYER0_MOD:
+            oled_write_ln_P(PSTR("____ ____      0-MOD"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("____      ____ ____"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("____ ____ ____ ____"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("EMOJ ____ ____ UNDG"), false);
             break;
         case _LAYER1:
             oled_write_ln_P(PSTR("(FRA- FRA+)    FCPX"), false);
@@ -153,6 +168,9 @@ bool rgb_matrix_indicators_kb(void) {
             case _LAYER1:
                 rgb_matrix_set_color_all(0, 10, 0);
                 break;
+            case _LAYER0_MOD:
+                rgb_matrix_set_color_all(5, 0, 5);
+                break;      
             case _LAYER0:
                 rgb_matrix_set_color_all(10, 0, 0);
                 break;           
