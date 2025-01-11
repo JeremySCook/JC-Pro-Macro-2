@@ -37,18 +37,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * └───┴───┴───┴───┘
      */
     [_LAYER0] = LAYOUT( // default
-        KC_MUTE,        KC_X,     LSFT(KC_COMM),    LSFT(KC_DOT),
-        LAYER_TOGGLE,   KC_X,     KC_J,             KC_L,
-        KC_MPRV,        KC_MPLY,  KC_MNXT,          C(LGUI(KC_SPC))
+        KC_MUTE,       KC_X,     LSFT(KC_COMM),    LSFT(KC_DOT),
+        DF(_LAYER1),   KC_X,     KC_J,             KC_L,
+        KC_MPRV,       KC_MPLY,  KC_MNXT,          C(LGUI(KC_SPC))
     ),
     [_LAYER1] = LAYOUT( // FCPX
-        LSFT(LGUI(KC_B)),   KC_X,     LGUI(KC_B), LGUI(KC_EQL),
-        LAYER_TOGGLE,       KC_X,     LALT(KC_K), LGUI(KC_MINS),
-        KC_J,               KC_K,     KC_L,       KC_BSPC
+        LSFT(LGUI(KC_B)),  KC_X,     LGUI(KC_B), LGUI(KC_EQL),
+        DF(_LAYER2),       KC_X,     LALT(KC_K), LGUI(KC_MINS),
+        KC_J,              KC_K,     KC_L,       KC_BSPC
     ),
     [_LAYER2] = LAYOUT( // KICAD
         KC_E,           KC_X,     KC_ESC,     KC_M,
-        LAYER_TOGGLE,   KC_X,     LGUI(KC_Z), KC_X,
+        DF(_LAYER0),    KC_X,     LGUI(KC_Z), KC_X,
         KC_V,           KC_D,     KC_U,       KC_BSPC //NOT SURE ABOUT DRAG 2ND FROM LEFT
     ),
 };
