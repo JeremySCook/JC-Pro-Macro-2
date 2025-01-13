@@ -58,7 +58,7 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     }
 
 bool oled_task_user(void) {
-    switch (get_highest_layer(layer_state)) {
+    switch (get_highest_layer(layer_state | default_layer_state)) {
         case _LAYER0:
             oled_write_ln_P(PSTR("(VOL- VOL+)  LAYER0"), false);
             oled_write_ln_P(PSTR(""), false);
@@ -66,7 +66,7 @@ bool oled_task_user(void) {
             oled_write_ln_P(PSTR(""), false);
             oled_write_ln_P(PSTR("LAYR RSET 10BK 10FW"), false);
             oled_write_ln_P(PSTR(""), false);
-            oled_write_ln_P(PSTR("MREV MPLA MFWD EMOJ"), false);
+            oled_write_ln_P(PSTR("MREV MPLA MFWD -OPT"), false);
             break;
         case _LAYER0_MOD:
             oled_write_ln_P(PSTR("____ ____      0-MOD"), false);
