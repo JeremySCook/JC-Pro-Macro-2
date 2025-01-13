@@ -50,3 +50,56 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [_LAYER2] = { ENCODER_CCW_CW(KC_R, S(KC_R)) }, // KICAD
 };
 #endif
+
+#ifdef OLED_ENABLE
+// Function to display the current layer and information on the OLED
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+        return OLED_ROTATION_180; // flips the display 180 degrees if offhand
+    }
+
+bool oled_task_user(void) {
+    switch (get_highest_layer(layer_state)) {
+        case _LAYER0:
+            oled_write_ln_P(PSTR("(VOL- VOL+)  LAYER0"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("MUTE      SLOW FAST"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("LAYR RSET 10BK 10FW"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("MREV MPLA MFWD EMOJ"), false);
+            break;
+        case _LAYER0_MOD:
+            oled_write_ln_P(PSTR("____ ____      0-MOD"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("____      ____ ____"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("____ ____ ____ ____"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("EMOJ ____ ____ UNDG"), false);
+            break;
+        case _LAYER1:
+            oled_write_ln_P(PSTR("(FRA- FRA+)    FCPX"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("XXXX      BRAK ZOM+"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("LAYR RSET KFRA ZOM-"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("BACK STOP FORW DELT"), false);
+            break;
+        case _LAYER2:
+            oled_write_ln_P(PSTR("(RO L RO R)   KICAD"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("EDIT      ESCP MOVE"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("LAYR RSET UNDO TRAK"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("VIA  DRAG SALL DELT"), false);
+            break;
+    }
+
+    // Optionally display other custom text
+    //oled_write_ln_P(PSTR("Enc Vol +/-"), false);
+
+    return false; // Indicate that no further OLED updates are required
+}
+#endif
