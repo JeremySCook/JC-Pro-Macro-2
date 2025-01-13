@@ -22,24 +22,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * └───┴───┴───┴───┘
      */
     [_LAYER0] = LAYOUT( // default
-        KC_MUTE,       KC_X,     LSFT(KC_COMM),    LSFT(KC_DOT),
-        DF(_LAYER1),   KC_X,     KC_J,             KC_L,
+        KC_MUTE,                 LSFT(KC_COMM),    LSFT(KC_DOT),
+        DF(_LAYER1),             KC_J,             KC_L,
         KC_MPRV,       KC_MPLY,  KC_MNXT,          OSL(_LAYER0_MOD) // btm-right one shot mod layer
     ),
     [_LAYER0_MOD] = LAYOUT( // default MOD
-        _______,            KC_X,     _______,    _______, // _______ transparent, goes to above layer
-        _______,            KC_X,     _______,    _______,
+        _______,                      _______,    _______, // _______ transparent, goes to above layer
+        _______,                      _______,    _______,
         C(LGUI(KC_SPC)),    _______,  _______,    UG_TOGG
     ),
     [_LAYER1] = LAYOUT( // FCPX
-        LSFT(LGUI(KC_B)),  KC_X,     LGUI(KC_B), LGUI(KC_EQL),
-        DF(_LAYER2),       KC_X,     LALT(KC_K), LGUI(KC_MINS),
+        LSFT(LGUI(KC_B)),            LGUI(KC_B), LGUI(KC_EQL),
+        DF(_LAYER2),                 LALT(KC_K), LGUI(KC_MINS),
         KC_J,              KC_K,     KC_L,       KC_BSPC
     ),
     [_LAYER2] = LAYOUT( // KICAD
-        KC_E,           KC_X,     KC_ESC,     KC_M,
-        DF(_LAYER0),    KC_X,     LGUI(KC_Z), KC_X,
-        KC_V,           KC_D,     KC_U,       KC_BSPC    ),
+        KC_E,                        KC_ESC,     KC_M,
+        DF(_LAYER0),                 LGUI(KC_Z), KC_X,
+        KC_V,              KC_D,     KC_U,       KC_BSPC    ),
 };
 
 #ifdef ENCODER_MAP_ENABLE //defined in rules.mk
