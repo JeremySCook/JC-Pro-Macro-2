@@ -96,10 +96,24 @@ bool oled_task_user(void) {
             oled_write_ln_P(PSTR("VIA  DRAG SALL DELT"), false);
             break;
     }
-
-    // Optionally display other custom text
-    //oled_write_ln_P(PSTR("Enc Vol +/-"), false);
-
-    return false; // Indicate that no further OLED updates are required
+    return false;
 }
 #endif
+
+bool rgb_matrix_indicators_kb(void) { //is there a better way to do this??
+        switch(get_highest_layer(layer_state|default_layer_state)) {
+            case _LAYER2:
+                rgb_matrix_set_color_all(0, 0, 10);
+                break;
+            case _LAYER1:
+                rgb_matrix_set_color_all(0, 10, 0);
+                break;
+            case _LAYER0_MOD:
+                rgb_matrix_set_color_all(5, 0, 5);
+                break;      
+            case _LAYER0:
+                rgb_matrix_set_color_all(10, 0, 0);
+                break;           
+        }
+    return false;
+}
