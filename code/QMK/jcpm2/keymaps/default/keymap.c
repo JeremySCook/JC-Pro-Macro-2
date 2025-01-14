@@ -11,6 +11,8 @@ enum layer_names {
     _LAYER2,
 };
 
+const uint8_t UNDERGLOW = 60;
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
      * ┌───┬───┬───┬───┐
@@ -27,9 +29,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_MPRV,       KC_MPLY,  KC_MNXT,          OSL(_LAYER0_MOD) // btm-right one shot mod layer
     ),
     [_LAYER0_MOD] = LAYOUT( // default MOD
-        _______,                      _______,    _______, // _______ transparent, goes to above layer
-        _______,                      _______,    _______,
-        C(LGUI(KC_SPC)),    _______,  _______,    UG_TOGG
+        _______,                      _______,    RM_NEXT, // _______ transparent, goes to above layer
+        _______,                      _______,    RM_ON,
+        C(LGUI(KC_SPC)),    _______,  _______,    RM_OFF
     ),
     [_LAYER1] = LAYOUT( // FCPX
         LSFT(LGUI(KC_B)),            LGUI(KC_B), LGUI(KC_EQL),
@@ -100,7 +102,10 @@ bool oled_task_user(void) {
 }
 #endif
 
-bool rgb_matrix_indicators_kb(void) { //is there a better way to do this??
+uint8_t hues[] = { 10, 100, 200 };
+
+    /*
+bool rgb_matrix_indicators_user(void) { //is there a better way to do this??
         switch(get_highest_layer(layer_state|default_layer_state)) {
             case _LAYER2:
                 rgb_matrix_set_color_all(0, 0, 10);
@@ -116,4 +121,38 @@ bool rgb_matrix_indicators_kb(void) { //is there a better way to do this??
                 break;           
         }
     return false;
+} */
+
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    for (uint8_t i = led_min; i < led_max; i++) {
+        switch(get_highest_layer(layer_state|default_layer_state)) {
+            case _LAYER2:
+                rgb_matrix_set_color(11, 0, 0, UNDERGLOW);
+                rgb_matrix_set_color(10, 0, 0, UNDERGLOW);
+                rgb_matrix_set_color(9, 0, 0, UNDERGLOW);
+                rgb_matrix_set_color(8, 0, 0, UNDERGLOW);
+                break;
+            case _LAYER1:
+                rgb_matrix_set_color(11, 0, UNDERGLOW, 0);
+                rgb_matrix_set_color(10, 0, UNDERGLOW, 0);
+                rgb_matrix_set_color(9, 0, UNDERGLOW, 0);
+                rgb_matrix_set_color(8, 0, UNDERGLOW, 0);
+                break;
+            case _LAYER0_MOD:
+                rgb_matrix_set_color(11, UNDERGLOW/2, 0, UNDERGLOW/2);
+                rgb_matrix_set_color(10, UNDERGLOW/2, 0, UNDERGLOW/2);
+                rgb_matrix_set_color(9, UNDERGLOW/2, 0, UNDERGLOW/2);
+                rgb_matrix_set_color(8, UNDERGLOW/2, 0, UNDERGLOW/2);
+                break;
+            case _LAYER0:
+                rgb_matrix_set_color(11, UNDERGLOW, 0, 0);
+                rgb_matrix_set_color(10, UNDERGLOW, 0, 0);
+                rgb_matrix_set_color(9, UNDERGLOW, 0, 0);
+                rgb_matrix_set_color(8, UNDERGLOW, 0, 0);
+                break;           
+            default:
+                break;
+            }
+        }
+    return false;    
 }
