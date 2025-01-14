@@ -9,6 +9,7 @@ enum layer_names {
     _LAYER0_MOD,
     _LAYER1,
     _LAYER2,
+    _LAYER3 //unused
 };
 
 const uint8_t UNDERGLOW = 60;
@@ -26,12 +27,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_LAYER0] = LAYOUT( // default
         KC_MUTE,                 LSFT(KC_COMM),    LSFT(KC_DOT),
         DF(_LAYER1),             KC_J,             KC_L,
-        KC_MPRV,       KC_MPLY,  KC_MNXT,          OSL(_LAYER0_MOD) // btm-right one shot mod layer
+        KC_MPRV,       KC_MPLY,  KC_MNXT,          TG(_LAYER0_MOD) // btm-right one shot mod layer
     ),
     [_LAYER0_MOD] = LAYOUT( // default MOD
-        _______,                      _______,    RM_NEXT, // _______ transparent, goes to above layer
-        _______,                      _______,    RM_ON,
-        C(LGUI(KC_SPC)),    _______,  _______,    RM_OFF
+        _______,                      RM_VALU,    RM_NEXT, // _______ transparent, goes to above layer
+        _______,                      RM_VALD,    RM_TOGG,
+        C(LGUI(KC_SPC)),    _______,  _______,    TG(_LAYER0_MOD)
     ),
     [_LAYER1] = LAYOUT( // FCPX
         LSFT(LGUI(KC_B)),            LGUI(KC_B), LGUI(KC_EQL),
@@ -40,8 +41,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_LAYER2] = LAYOUT( // KICAD
         KC_E,                        KC_ESC,     KC_M,
-        DF(_LAYER0),                 LGUI(KC_Z), KC_X,
-        KC_V,              KC_D,     KC_U,       KC_BSPC    ),
+        DF(_LAYER0),            LGUI(KC_Z), KC_X,
+        KC_V,              KC_D,     KC_U,       KC_BSPC    
+    ),
+    [_LAYER3] = LAYOUT( // Unused
+        MI_AOFF,                     MI_B3,      MI_C4,
+        DF(_LAYER0),                 MI_G3,      MI_A3,
+        MI_C3,              MI_D3,   MI_E3,      MI_F3   
+    ),
 };
 
 #ifdef ENCODER_MAP_ENABLE //defined in rules.mk
@@ -50,6 +57,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [_LAYER0_MOD] = { ENCODER_CCW_CW(_______, _______) }, // default MOD
     [_LAYER1] = { ENCODER_CCW_CW(KC_LEFT, KC_RIGHT) }, // FCPX
     [_LAYER2] = { ENCODER_CCW_CW(KC_R, S(KC_R)) }, // KICAD
+    [_LAYER3] = { ENCODER_CCW_CW(_______, _______) }, // UNUSED
 };
 #endif
 
@@ -68,16 +76,16 @@ bool oled_task_user(void) {
             oled_write_ln_P(PSTR(""), false);
             oled_write_ln_P(PSTR("LAYR RSET 10BK 10FW"), false);
             oled_write_ln_P(PSTR(""), false);
-            oled_write_ln_P(PSTR("MREV MPLA MFWD -OPT"), false);
+            oled_write_ln_P(PSTR("MREV MPLA MFWD +OPT"), false);
             break;
         case _LAYER0_MOD:
             oled_write_ln_P(PSTR("____ ____      0-MOD"), false);
             oled_write_ln_P(PSTR(""), false);
-            oled_write_ln_P(PSTR("____      ____ ____"), false);
+            oled_write_ln_P(PSTR("____      BRI+ ANIM"), false);
             oled_write_ln_P(PSTR(""), false);
-            oled_write_ln_P(PSTR("____ ____ ____ ____"), false);
+            oled_write_ln_P(PSTR("____ ____ BRI- TOGG"), false);
             oled_write_ln_P(PSTR(""), false);
-            oled_write_ln_P(PSTR("EMOJ ____ ____ UNDG"), false);
+            oled_write_ln_P(PSTR("EMOJ ____ ____ -OPT"), false);
             break;
         case _LAYER1:
             oled_write_ln_P(PSTR("(FRA- FRA+)    FCPX"), false);
@@ -97,31 +105,19 @@ bool oled_task_user(void) {
             oled_write_ln_P(PSTR(""), false);
             oled_write_ln_P(PSTR("VIA  DRAG SALL DELT"), false);
             break;
+        case _LAYER3: //not used
+            oled_write_ln_P(PSTR("(RO L RO R)   MIDI"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("EDIT      B3   C4"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("LAYR RSET G3   A3"), false);
+            oled_write_ln_P(PSTR(""), false);
+            oled_write_ln_P(PSTR("C3   D3   E3   F3"), false);
+            break;
     }
     return false;
 }
 #endif
-
-uint8_t hues[] = { 10, 100, 200 };
-
-    /*
-bool rgb_matrix_indicators_user(void) { //is there a better way to do this??
-        switch(get_highest_layer(layer_state|default_layer_state)) {
-            case _LAYER2:
-                rgb_matrix_set_color_all(0, 0, 10);
-                break;
-            case _LAYER1:
-                rgb_matrix_set_color_all(0, 10, 0);
-                break;
-            case _LAYER0_MOD:
-                rgb_matrix_set_color_all(5, 0, 5);
-                break;      
-            case _LAYER0:
-                rgb_matrix_set_color_all(10, 0, 0);
-                break;           
-        }
-    return false;
-} */
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     for (uint8_t i = led_min; i < led_max; i++) {
@@ -149,7 +145,13 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                 rgb_matrix_set_color(10, UNDERGLOW, 0, 0);
                 rgb_matrix_set_color(9, UNDERGLOW, 0, 0);
                 rgb_matrix_set_color(8, UNDERGLOW, 0, 0);
-                break;           
+                break;
+            case _LAYER3: //not used
+                rgb_matrix_set_color(11, 0, UNDERGLOW/2, UNDERGLOW/2);
+                rgb_matrix_set_color(10, 0, UNDERGLOW/2, UNDERGLOW/2);
+                rgb_matrix_set_color(9, 0, UNDERGLOW/2, UNDERGLOW/2);
+                rgb_matrix_set_color(8, 0, UNDERGLOW/2, UNDERGLOW/2);
+                break;          
             default:
                 break;
             }
