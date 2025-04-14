@@ -47,7 +47,7 @@ long oldPulseTime = 0;
 int fanRPM = 0;
 char toneNote;
 
-int modeArray[] = {0, 1, 3, 7}; //adjust this array to modify sequence of modes - as written, change to {0, 1, 2, 3, 4, 5} to access all modes
+int modeArray[] = {0, 1, 3, 7, 8}; //adjust this array to modify sequence of modes - as written, change to {0, 1, 2, 3, 4, 5} to access all modes
 int inputModeIndex = 0;
 int modeArrayLength = (sizeof(modeArray) / sizeof(modeArray[0]));
 
@@ -222,6 +222,10 @@ if (inputMode == 7) {
   pixels.setPixelColor(LEDCircle[LEDLight], pixels.Color(0, 0, 20));
   pixels.show(); // Show results  
   KiCad();
+}
+
+if (inputMode == 8) {  // AHK Mode
+  ahkMode();
 }
 
 //Serial.println(inputMode);
@@ -716,6 +720,133 @@ void KiCad(){
     screenKiCad();
 }
 
+void ahkMode() {
+  setLightsGreen();
+  // Handle encoder movement for increment/decrement
+  if (increment == 1) {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press(KEY_LEFT_ALT);
+    Keyboard.press(KEY_LEFT_SHIFT);
+    Keyboard.press(KEY_F1); 
+    Keyboard.releaseAll();
+    increment = 0;
+    setLightsGreen();  // Reset all lights to green after releasing
+  }
+  
+  if (decrement == 1) {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press(KEY_LEFT_ALT);
+    Keyboard.press(KEY_LEFT_SHIFT);
+    Keyboard.press(KEY_F2);  
+    Keyboard.releaseAll();
+    decrement = 0;
+    setLightsGreen();  // Reset all lights to green after releasing
+  }
+
+  // Handle button presses for SW1 to SW9
+  if (SW1 == 0) {
+    setLightsRed(0);  // Turn the first LED red when pressed
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press(KEY_LEFT_ALT);
+    Keyboard.press(KEY_LEFT_SHIFT);
+    Keyboard.press(KEY_F3);  
+    Keyboard.releaseAll();
+    delay(100);
+    setLightsGreen();  // Reset all lights to green after releasing
+  }
+
+  if (SW2 == 0) {
+    setLightsRed(0);  
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press(KEY_LEFT_ALT);
+    Keyboard.press(KEY_LEFT_SHIFT);
+    Keyboard.press(KEY_F4); 
+    Keyboard.releaseAll();
+    delay(100);
+    setLightsGreen();  // Reset all lights to green after releasing
+  }
+
+  if (SW3 == 0) {
+    setLightsRed(1);  
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press(KEY_LEFT_ALT);
+    Keyboard.press(KEY_LEFT_SHIFT);
+    Keyboard.press(KEY_F5); 
+    Keyboard.releaseAll();
+    delay(100);
+    setLightsGreen();  // Reset all lights to green after releasing
+  }
+
+  if (SW4 == 0) {
+    setLightsRed(2);  
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press(KEY_LEFT_ALT);
+    Keyboard.press(KEY_LEFT_SHIFT);
+    Keyboard.press(KEY_F6); 
+    Keyboard.releaseAll();
+    delay(100);
+    setLightsGreen();  // Reset all lights to green after releasing
+  }
+
+  if (SW5 == 0) {
+    setLightsRed(3);  
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press(KEY_LEFT_ALT);
+    Keyboard.press(KEY_LEFT_SHIFT);
+    Keyboard.press(KEY_F7);  
+    Keyboard.releaseAll();
+    delay(100);
+    setLightsGreen();  // Reset all lights to green after releasing
+  }
+
+  if (SW6 == 0) {
+      setLightsRed(4);  
+      Keyboard.press(KEY_LEFT_CTRL);
+      Keyboard.press(KEY_LEFT_ALT);
+      Keyboard.press(KEY_LEFT_SHIFT);
+      Keyboard.press(KEY_F8);  
+      Keyboard.releaseAll();
+      delay(100);
+      setLightsGreen();  // Reset all lights to green after releasing
+    }
+
+  if (SW7 == 0) {
+      setLightsRed(5);  
+      Keyboard.press(KEY_LEFT_CTRL);
+      Keyboard.press(KEY_LEFT_ALT);
+      Keyboard.press(KEY_LEFT_SHIFT);
+      Keyboard.press(KEY_F9); 
+      Keyboard.releaseAll();
+      delay(100);
+      setLightsGreen();  // Reset all lights to green after releasing
+    }
+
+  if (SW8 == 0) {
+    setLightsRed(6);  
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press(KEY_LEFT_ALT);
+    Keyboard.press(KEY_LEFT_SHIFT);
+    Keyboard.press(KEY_F10);  
+    Keyboard.releaseAll();
+    delay(100);
+    setLightsGreen();  // Reset all lights to green after releasing
+  }
+
+  
+
+  if (SW9 == 0) {
+    setLightsRed(7);  // Turn the ninth LED red when pressed
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press(KEY_LEFT_ALT);
+    Keyboard.press(KEY_LEFT_SHIFT);
+    Keyboard.press(KEY_F11); 
+    Keyboard.releaseAll();
+    delay(100);
+    setLightsGreen();  // Reset all lights to green after releasing
+  }
+}
+
+
 //======================.96" oled screen=======================
 
 void screenVolume(){
@@ -852,4 +983,18 @@ void topPixelsClear(){
     pixels.setPixelColor(i, pixels.Color(0, 0, 0));
   }
   pixels.show(); // Show results
+}
+
+// Function to set all lights to green
+void setLightsGreen() {
+  for (int i = 0; i < NUMPIXELS; i++) {
+    pixels.setPixelColor(i, pixels.Color(0, 255, 0));  // Set green color
+  }
+  pixels.show();
+}
+
+// Function to set a specific light red when a button is pressed
+void setLightsRed(int index) {
+  pixels.setPixelColor(index, pixels.Color(255, 0, 0));  // Set red color
+  pixels.show();
 }
