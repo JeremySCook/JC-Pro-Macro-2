@@ -148,6 +148,13 @@ mode the middle-rightmost key will turn it up, while the key below that turns it
 Of course, this is but the built-in functionality. These and other pins are broken out to allow you to experiment with  
 external devices. This is, of course, at your own risk.
 
+*J1 and J3 are both setup to support standard SSD1306 OLED screens, and function identically. +/- are set based on JP1, JP2, JP3, and JP4, and can be set independently between J1 and J3. SDA and SCL are serial data and serial clock respectively for I2C connections.  
+Two screens or different devices can be used on the different jumpers, theoretically at the same time.  
+SCL_PU1 and SDA_PU1 are optional pullup resistors for the SCL and SDA lines. Not typically needed.  
+J4 - optional capacitor can be placed here
+
+
+
 ## Tips: ##
 
 **If Programming Doesn’t Work - Need to update**
